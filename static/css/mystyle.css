@@ -251,9 +251,9 @@ nav ul{
 
 .TopTinyPic img{
 	position: absolute;
-	bottom:0;
+	top:0;
 	left:0;
-	width: auto;
+	width: 100%;
 	height:auto;
 
 }

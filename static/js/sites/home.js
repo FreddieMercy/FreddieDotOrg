@@ -40,7 +40,7 @@ $(document).ready(function() {
 			$("#dljd2 span").text(jsonRaw[index]['副标题']);
 			$("#dljd3 span").text(jsonRaw[index]['内容']);
 
-			if($("#dljd2 span").text().length == 0 && $("#dljd3 span").text().length == 0){
+			if($("#dljd2 span").text().length === 0 && $("#dljd3 span").text().length === 0){
 
 				$("#dljd1").css("padding-top","35%");
 			}else{
@@ -66,57 +66,143 @@ $(document).ready(function() {
 		$("#Trace nav ul").html(trc);
 
 		trc="";
+//###################################################################################################################################################
 
-		var timerId=window.setInterval(
-	
-			function(){
+		var timerId=undefined;
+		
+		$(window).scroll(function(e){
 
+			var winBot=$(window).scrollTop() + $(window).height();
+			var txtBot=$("#DalianJunda").offset().top + $("#DalianJunda").outerHeight();
+			var txtPending=0;
+			//opacity inc
+			if(winBot>=$("#DalianJunda").offset().top+txtPending  && winBot<txtBot+txtPending){
 
-				$("#dljdText li span").fadeOut(500,function(){
-					$("#dljd1 span").text(jsonRaw[index]['标题']);
-					$("#dljd2 span").text(jsonRaw[index]['副标题']);
-					$("#dljd3 span").text(jsonRaw[index]['内容']);
+				var cof1=Math.sin(  (winBot-$("#DalianJunda").offset().top-txtPending)  / $("#DalianJunda").outerHeight()*(Math.PI/2) );
 
-				if($("#dljd2 span").text().length == 0 && $("#dljd3 span").text().length == 0){
-
-					$("#dljd1").css("padding-top","35%");
-				}else{
-					$("#dljd1").css("padding-top","0px");
-				}
-				
-					$("#playPics").html('<img style="min-height: 100%;" src="http://'+window.location.host+'/templates/functions.php?HomeFirstPic='+jsonRaw[index]['id']+'">');
-				}).fadeIn(1000);
-
-				index+=1;
-
-				if(index === jsonRaw.length){
-					index=0;
-				}
-
-				for(i = 0; i<jsonRaw.length; i++)
-				{
-					if(i===index){
-
-						trc+=selnode;
+				$("#dljdText li").css({
 
 
-					}else{
-						trc+=node;
-					}
+					"opacity":cof1
 
-				}
+				});
 
-				$("#Trace nav ul").html(trc);
+				$("#dljdText").css({
 
-				trc="";
+					"left":(cof1-1)*100
+
+				});
 			}
-	
-		,5000);
+			//opacity dec
+			else if($(window).scrollTop()>=$("#DalianJunda").offset().top && $(window).scrollTop()<txtBot){
+
+				var cof2=Math.sin(  (txtBot-$(window).scrollTop())  / $("#DalianJunda").outerHeight()*(Math.PI/2) );
+
+				$("#dljdText li").css({
+
+					"opacity":cof2,
+
+				});
+
+				$("#dljdText").css({
+
+					"left":(cof2-1)*100
+
+				});
+
+			}
+
+			//opacity = 1
+			else if(winBot >= txtBot+txtPending && $(window).scrollTop()<$("#DalianJunda").offset().top+txtPending){
+				
+				if(timerId === undefined){
+					timerId=window.setInterval(
+				
+						function(){
+
+
+							$("#dljdText li span").fadeOut(500,function(){
+								$("#dljd1 span").text(jsonRaw[index]['标题']);
+								$("#dljd2 span").text(jsonRaw[index]['副标题']);
+								$("#dljd3 span").text(jsonRaw[index]['内容']);
+
+							if($("#dljd2 span").text().length === 0 && $("#dljd3 span").text().length === 0){
+
+								$("#dljd1").css("padding-top","35%");
+							}else{
+								$("#dljd1").css("padding-top","0px");
+							}
+							
+								$("#playPics").html('<img style="min-height: 100%;" src="http://'+window.location.host+'/templates/functions.php?HomeFirstPic='+jsonRaw[index]['id']+'">');
+							}).fadeIn(1000);
+
+							index+=1;
+
+							if(index === jsonRaw.length){
+								index=0;
+							}
+
+							for(i = 0; i<jsonRaw.length; i++)
+							{
+								if(i===index){
+
+									trc+=selnode;
+
+
+								}else{
+									trc+=node;
+								}
+
+							}
+
+							$("#Trace nav ul").html(trc);
+
+							trc="";
+						}
+				
+					,5000);
+
+				}
+
+				$("#dljdText li").css({
+
+					"opacity":"1",
+			
+				});
+
+				$("#dljdText").css({
+
+					"left":0
+
+				});
+			}
+
+			//opacity = 0
+			else
+			{
+				clearInterval(timerId);
+
+				timerId = undefined;
+
+				$("#dljdText li").css({
+
+					"opacity":"0",
+				});
+
+				$("#dljdText").css({
+
+					"left":"-100%"
+
+				});
+			}
+		
+		});
+
 	}
 
 
-	$("#DalianJunda").css({
-							"height":$(window).height()-$("#sidebar1").height()-$("#HeaderPic").height()-$(".PathBar").outerHeight()+14,
+	$(".HomeTop").css({
+							"height":$(window).height()-$("#sidebar1").height()-$("#HeaderPic").height()/*-$(".PathBar").outerHeight()+14*/,
 							"min-height":500
 						});
 
@@ -134,10 +220,10 @@ $(document).ready(function() {
 
 							});
 
-
+/*
 	$("#about2").css({
 
-						"height":$("#HomeSecondAbout").outerHeight() - $("#about1").outerHeight()- $("#about3").outerHeight()
+						"height":$("#HomeSectionAbout").outerHeight() - $("#about1").outerHeight()- $("#about3").outerHeight()
 						 - parseInt($("#aboutText").css("margin-top").replace("px", ""))
 						 	- parseInt($("#about3").css("margin-top").replace("px", ""))
 						 		- parseInt($("#about2").css("margin-top").replace("px", ""))
@@ -147,6 +233,7 @@ $(document).ready(function() {
 									 			- parseInt($("#about1").css("padding-bottom").replace("px", ""))
 												 	- parseInt($("#about3").css("padding-bottom").replace("px", ""))
 												 		- parseInt($("#about2").css("padding-bottom").replace("px", ""))
+												 			-100
 
 
 					});
@@ -156,106 +243,34 @@ $(document).ready(function() {
 
 					"background-color":"rgba(255, 255, 255, 0.7)"
 				});
-
+*/
 	$(window).scroll(function(e){
 
-		//HomeSecondAbout
 		var winBot=$(window).scrollTop() + $(window).height();
-		var txtBot=$("#HomeSecondAbout").offset().top + $("#HomeSecondAbout").outerHeight();
-		var txtPending=0;
-
-		//opacity inc
-		if(winBot>=$("#HomeSecondAbout").offset().top+txtPending  && winBot<txtBot+txtPending){
-
-			var cof1=Math.sin(  (winBot-$("#HomeSecondAbout").offset().top-txtPending)  / $("#HomeSecondAbout").outerHeight()*(Math.PI/2) );
-
-			$("#aboutText li").css({
-
-
-				"opacity":cof1
-
-			});
-
-			$("#aboutText").css({
-
-				"right":(cof1-1)*100
-
-			});
-		}
-		//opacity dec
-		else if($(window).scrollTop()>=$("#HomeSecondAbout").offset().top && $(window).scrollTop()<txtBot){
-
-			var cof2=Math.sin(  (txtBot-$(window).scrollTop())  / $("#HomeSecondAbout").outerHeight()*(Math.PI/2) );
-
-			$("#aboutText li").css({
-
-				"opacity":cof2,
-
-			});
-
-			$("#aboutText").css({
-
-				"right":(cof2-1)*100
-
-			});
-
-		}
-
-		//opacity = 1
-		else if(winBot >= txtBot+txtPending && $(window).scrollTop()<$("#HomeSecondAbout").offset().top+txtPending){
-			$("#aboutText li").css({
-
-				"opacity":"1",
-		
-			});
-
-			$("#aboutText").css({
-
-				"right":0
-
-			});
-		}
-
-		//opacity = 0
-		else
-		{
-			$("#aboutText li").css({
-
-				"opacity":"0",
-			});
-
-			$("#aboutText").css({
-
-				"right":"-100%"
-
-			});
-		}
-
-//###################################################################################################################################################
 
 		//HomeForthHire
 
-		var eleBot=$("#HomeForthHire").offset().top + $("#HomeForthHire").outerHeight();
-		var elePending=$("#HomeForthHire").outerHeight()/2;
+		var eleBot=$("#HomeForHire").offset().top + $("#HomeForHire").outerHeight();
+		var elePending=$("#HomeForHire").outerHeight()/2;
 
 		//opacity inc
-		if(winBot>=$("#HomeForthHire").offset().top+elePending  && winBot<eleBot+elePending){
-			$("#HomeForthHire li").css("opacity",Math.sin(  (winBot-$("#HomeForthHire").offset().top-elePending)  / $("#HomeForthHire").outerHeight()*(Math.PI/2) ));
+		if(winBot>=$("#HomeForHire").offset().top+elePending  && winBot<eleBot+elePending){
+			$("#HomeForHire li").css("opacity",Math.sin(  (winBot-$("#HomeForHire").offset().top-elePending)  / $("#HomeForHire").outerHeight()*(Math.PI/2) ));
 		}
 		//opacity dec
-		else if($(window).scrollTop()>=$("#HomeForthHire").offset().top && $(window).scrollTop()<eleBot){
-			$("#HomeForthHire li").css("opacity",Math.sin(  (eleBot-$(window).scrollTop())  / $("#HomeForthHire").outerHeight()*(Math.PI/2) ));
+		else if($(window).scrollTop()>=$("#HomeForHire").offset().top && $(window).scrollTop()<eleBot){
+			$("#HomeForHire li").css("opacity",Math.sin(  (eleBot-$(window).scrollTop())  / $("#HomeForHire").outerHeight()*(Math.PI/2) ));
 		}
 
 		//opacity = 1
-		else if(winBot >= eleBot+elePending && $(window).scrollTop()<$("#HomeForthHire").offset().top+elePending){
-			$("#HomeForthHire li").css("opacity","1");
+		else if(winBot >= eleBot+elePending && $(window).scrollTop()<$("#HomeForHire").offset().top+elePending){
+			$("#HomeForHire li").css("opacity","1");
 		}
 
 		//opacity = 0
 		else
 		{
-			$("#HomeForthHire li").css("opacity","0");
+			$("#HomeForHire li").css("opacity","0");
 		}
 
 	});

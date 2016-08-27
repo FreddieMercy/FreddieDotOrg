@@ -1,17 +1,27 @@
-#HomeThirdForm{
+#HomeProduct{
 
 	position: relative;
 
 	width:100%;
-
+/*
 	height:40vh;
 	overflow: hidden;
+*/
+
+/* 	for the purpose of new design */
+	
+	min-height:40vh;
+	height:auto;
+	overflow: auto;
+
+/* ****************************** */
+
 	background: white;
 
 }
 
 
-#HomeThirdForm form{
+#HomeProduct form{
 
 	position:relative;
 	float:right;
@@ -43,8 +53,8 @@
 	background: white;
 }
 
-
-#HomeThirdForm:after {
+/*
+#HomeProduct:after {
     content: "";
     width: 100%;
     height: 80px;
@@ -63,6 +73,7 @@
     left: 0;
     z-index: 1;
 }
+*/
 
 .botTop{
 	width:calc(100% - 100px);
@@ -80,7 +91,7 @@
 	font-weight:bold;
 
 }
-
+/*
 .botTop img{
 
 	width:30px;
@@ -90,11 +101,9 @@
 	float:left;
 
 }
-
+*/
 .botTop a{
 	position:relative;
-	float:right;
-
 	font-size: 18px;
 	margin:15px 10px 0px 10px;
 }

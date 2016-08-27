@@ -1,4 +1,4 @@
-#HomeSecondAbout{
+#HomeSectionAbout{
 
 	position: relative;
 	overflow: hidden;
@@ -46,12 +46,12 @@
 }
 
 #about1{
-	width:60vh; 
+	width:54vh; 
 	font-size:72px;
 }
 
 #about2{
-	width:45vh; 
+	width:40vh; 
 	font-size:32px; 
 	margin-top:10px;
 	overflow: hidden;
@@ -79,7 +79,7 @@
 }
 
 #about3{
-	width:45vh; 
+	width:40vh; 
 	font-size:24px; 
 	margin-top:10px; 
 	border-style:solid;
@@ -88,7 +88,7 @@
 }
 
 /*
-#HomeSecondAbout a{
+#HomeSectionAbout a{
 	position:absolute;
 	color:gray;
 	bottom:0;
@@ -98,7 +98,7 @@
 }
 
 
-#HomeSecondAbout:after {
+#HomeSectionAbout:after {
     content: "";
     width: 100%;
     height: 180px;
