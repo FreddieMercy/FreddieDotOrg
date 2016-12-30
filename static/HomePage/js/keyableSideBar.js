@@ -8,6 +8,26 @@
  */ 
 
 var file;
+var navbar = "#sidebar1";
+var thebody = "#container";
+var root = "Home";
+var thetitle="-Freddie's Personal Website";
+
+function restoreClickBehav(sel){
+	$(sel).css({"background-color":"#2A2A2A","color":"#FFF"}).parent();
+}
+
+function performClickBehav(sel){
+	sel.children().css({"color":"#000","background":"#FFF"});
+}
+
+function behav(){
+	
+	$(thebody).fadeOut(500, function(){/*document.getElementById("homeVideo").pause();*/});
+	_ajax($("#selected").attr('alt'));
+	//console.log("alt: "+$("#selected").attr('alt'));
+	$(thebody).fadeIn(500);
+}
 
 function _ajax(_url){
 	file=_url;
@@ -26,7 +46,7 @@ function _ajax(_url){
     				//console.log("success!");
     				//console.log(response);
     		
-    				$("#container").html(response);
+    				$(thebody).html(response);
     
     			},
     			
@@ -47,10 +67,7 @@ function _mark(){
 		return false;
 	};
 	
-	$("#container").fadeOut(500, function(){/*document.getElementById("homeVideo").pause();*/});
-	_ajax($("#selected").attr('alt'));
-	//console.log("alt: "+$("#selected").attr('alt'));
-	$("#container").fadeIn(500);
+	behav();
 }
 
 function _selectRight(){
@@ -66,7 +83,7 @@ function _selectRight(){
 		_selHelper(_location);
 	}
 	else{
-		_selHelper("Home");
+		_selHelper(root);
 	}
 	
 
@@ -74,7 +91,7 @@ function _selectRight(){
 
 function _selHelper(_location){
 	
-	$("#sidebar1 nav ul li").each(function(){
+	$(navbar+" nav ul li").each(function(){
 		
 		if($(this).children().text() === _location)
 		{
@@ -83,7 +100,7 @@ function _selHelper(_location){
 				$(this).children().attr("id","selected").css({"color":"#000","background":"#FFF"});
 			};
 
-			$("title").text($("#selected").text()+"-Freddie's Personal Website");
+			$("title").text($("#selected").text()+thetitle);
 			
 			return false;
 			
@@ -105,44 +122,40 @@ function _keys(){
 		{
 			sel = document.getElementById("selected");
 			sel.removeAttribute("id");
-			sel = $(sel).css({"background-color":"#2A2A2A","color":"#FFF"}).parent();
+			restoreClickBehav(sel);
 		
 			switch(e.which) {
 	 			   case 37:
 							if(sel.prev().text().length > 0)
 							{
 									sel = sel.prev();
-									sel.children().css({"color":"#000","background":"#FFF"});
 								
 				
 							}else{
 									sel.parent().attr("id","selected");
 									sel = $("#selected li").last();
 									document.getElementById("selected").removeAttribute("id");
-									sel.children().css({"color":"#000","background":"#FFF"});
 								
 							}
-							clearTimeout(timer);
-							kl = false;
+
 						break;
 	 			   case 39:
 							if(sel.next().text().length > 0){
 									
 									sel = sel.next();
-									sel.children().css({"color":"#000","background":"#FFF"});	
 							}else{
 					
 									sel.parent().attr("id","selected");
 									sel = $("#selected li").first();
-									document.getElementById("selected").removeAttribute("id");
-									sel.children().css({"color":"#000","background":"#FFF"});
-								
+									document.getElementById("selected").removeAttribute("id");								
 							};
-							clearTimeout(timer);
-							kr = false;
+
 						break;
 			};
 	
+			performClickBehav(sel);
+			clearTimeout(timer);
+			kl = false;
 			sel.children().attr("id","selected");
 		};
 	}).keyup(function(ev){
@@ -175,41 +188,44 @@ function _keys(){
 
 function _clicks(){
 
-	$("#sidebar1 nav ul li a").on("click",function(e){
+	$(navbar+" nav ul li a").on("click",function(e){
 
 		if($(this).attr("alt")===$("#selected").attr("alt")){
 			return false;
 		};
-				$("#selected").css({"background-color":"#2A2A2A","color":"#FFF"});
-				document.getElementById("selected").removeAttribute("id");
-				$(this).css({"color":"#000","background":"#FFF"}).attr("id","selected");
-				_mark();
+		
+		restoreClickBehav("#selected");
+		document.getElementById("selected").removeAttribute("id");
+		performClickBehav(this);
+		$(this).attr("id","selected");
+		_mark();
 
-	  });
+	});
 };
 
 $(document).ready(function() {
 	
-	$("#container").hide();
+	$(thebody).hide();
 
-	$("#sidebar1 nav a").hover(function(){
-					$(this).css({"background-color":"#FFF","color":"#000"});
+	$(navbar+" nav a").hover(function(){
+		
+				performClickBehav(this);
     					
 				             },function(){
 								if($(this).attr("id") !== "selected")
 								{
-								$(this).css({"background-color":"#2A2A2A","color":"#FFF"});
+									restoreClickBehav(this);
 								};
 	});	
 
-	$("#sidebar1").headroom();
+	$(navbar).headroom();
 	
 	_selectRight()
 	
 	//First time, _mark() without fadeout()
 	_ajax($("#selected").attr('alt'));
 	//console.log("alt: "+$("#selected").attr('alt'));
-	$("#container").fadeIn(500);
+	$(thebody).fadeIn(500);
 	
 	_keys();
 	_clicks();
