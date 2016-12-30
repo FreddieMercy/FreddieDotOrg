@@ -44,12 +44,9 @@ $(document).ready(function(){
 	}
 	
 	$(window).scroll(function(e) {
-			
-		if(($(window).scrollTop()%(2*$(window).height())<($(window).height()/2))|($(window).scrollTop()%(2*$(window).height())<($(window).height()-$(window).height()/2))){
-			$("#Sections").css("opacity",Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI));
-		}else{
-			$("#Sections").css("opacity",0-Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI));
-		};
+	
+		$("#Sections").css("opacity",Math.abs(Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI)));
+
 	});
 	
 	$("#siderBar_Pic div nav ul li").hover(function(){
