@@ -32,13 +32,23 @@
 	
 			  		<nav>
 				    		<ul>
-					      		<li><a href="/Home" alt="home.html">Home</a></li>
+					      		<li><a alt="home.html">Home</a></li>
+					      		<li><a alt="PhotoAlbums.html" id="sel">Photo Albums</a></li>
 				    		</ul>
 			    	</nav>
 			 </div>
 		</header>
 	
-		<div id="container"></div>
+		<div id="container">
+		
+			<video id="homeVideo" loop autoplay muted style="width:100%;position:fixed;background-size:cover;z-index:-1" >
+				<source style="z-index:-1" src="/static/media/{{ HomeVideo }}" type="video/mp4">
+			</video>
+			
+			<div id="Sections">
+			
+			</div>
+		</div>
 			
 	
 	    <div id="Footer" align="center" style="position:fixed;bottom:0px; width:100%;">

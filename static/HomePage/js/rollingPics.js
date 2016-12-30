@@ -13,9 +13,7 @@ $(document).ready(function(){
 	        }, 300);
 	    });
 	};
-	
-	$("#article").css("padding-top", ($(window).height()-500)/2);
-	$("#article").css("padding-bottom", ($(window).height()-500)/2);
+
 	$("#dispPic").css("height", $(window).height()-10);
 	$("#leftArrow").hide();
 	$("#righArrow").hide();
@@ -43,11 +41,13 @@ $(document).ready(function(){
 	, position: 'absolute' // Element positioning
 	}
 	
+	/*
 	$(window).scroll(function(e) {
 	
 		$("#Sections").css("opacity",Math.abs(Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI)));
 
 	});
+	*/
 	
 	$("#siderBar_Pic div nav ul li").hover(function(){
 		$(this).css({"background-color":"#2F2F2F"});

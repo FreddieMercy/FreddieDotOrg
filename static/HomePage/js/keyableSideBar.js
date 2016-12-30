@@ -9,17 +9,18 @@
 
 var file;
 var navbar = "#sidebar1";
-var thebody = "#container";
+var thebody = "#Sections";
 var root = "Home";
 var thetitle="-Freddie's Personal Website";
 
 function restoreClickBehav(sel){
-	$(sel).css({"background-color":"#2A2A2A","color":"#FFF"}).parent();
+	$(sel).css({"background-color":"#2A2A2A","color":"#FFF"});
 }
 
 function performClickBehav(sel){
-	sel.children().css({"color":"#000","background":"#FFF"});
+	$(sel).css({"color":"#000","background":"#FFF"});
 }
+
 
 function behav(){
 	
@@ -75,10 +76,6 @@ function _selectRight(){
 	var pathArray = window.location.pathname.split( '/' );
 	var _location = pathArray[1];
 	
-	//console.log(pathArray);
-	//console.log(window.location);
-	//console.log("_location: "+_location);
-	
 	if(_location){
 		_selHelper(_location);
 	}
@@ -86,7 +83,6 @@ function _selectRight(){
 		_selHelper(root);
 	}
 	
-
 };
 
 function _selHelper(_location){
@@ -97,10 +93,11 @@ function _selHelper(_location){
 		{
 			//console.log($(this).children().text());
 			if(document.getElementById("selected") === null){
-				$(this).children().attr("id","selected").css({"color":"#000","background":"#FFF"});
+				$(this).children().attr("id","selected");
 			};
 
 			$("title").text($("#selected").text()+thetitle);
+			performClickBehav("#selected");
 			
 			return false;
 			
@@ -123,6 +120,7 @@ function _keys(){
 			sel = document.getElementById("selected");
 			sel.removeAttribute("id");
 			restoreClickBehav(sel);
+			sel = $(sel).parent();
 		
 			switch(e.which) {
 	 			   case 37:
@@ -134,10 +132,10 @@ function _keys(){
 							}else{
 									sel.parent().attr("id","selected");
 									sel = $("#selected li").last();
-									document.getElementById("selected").removeAttribute("id");
-								
+									document.getElementById("selected").removeAttribute("id");								
 							}
-
+							clearTimeout(timer);
+							kl = false;
 						break;
 	 			   case 39:
 							if(sel.next().text().length > 0){
@@ -147,16 +145,16 @@ function _keys(){
 					
 									sel.parent().attr("id","selected");
 									sel = $("#selected li").first();
-									document.getElementById("selected").removeAttribute("id");								
+									document.getElementById("selected").removeAttribute("id");
+								
 							};
-
+							clearTimeout(timer);
+							kr = false;
 						break;
 			};
 	
-			performClickBehav(sel);
-			clearTimeout(timer);
-			kl = false;
 			sel.children().attr("id","selected");
+			performClickBehav("#selected");
 		};
 	}).keyup(function(ev){
 		
@@ -188,7 +186,7 @@ function _keys(){
 
 function _clicks(){
 
-	$(navbar+" nav ul li a").on("click",function(e){
+	$("#sidebar1 nav ul li a").on("click",function(e){
 
 		if($(this).attr("alt")===$("#selected").attr("alt")){
 			return false;
@@ -196,8 +194,8 @@ function _clicks(){
 		
 		restoreClickBehav("#selected");
 		document.getElementById("selected").removeAttribute("id");
-		performClickBehav(this);
 		$(this).attr("id","selected");
+		performClickBehav("#selected");
 		_mark();
 
 	});
@@ -207,18 +205,7 @@ $(document).ready(function() {
 	
 	$(thebody).hide();
 
-	$(navbar+" nav a").hover(function(){
-		
-				performClickBehav(this);
-    					
-				             },function(){
-								if($(this).attr("id") !== "selected")
-								{
-									restoreClickBehav(this);
-								};
-	});	
-
-	$(navbar).headroom();
+	//$(navbar).headroom();
 	
 	_selectRight()
 	
