@@ -1,0 +1,76 @@
+.ProjectSec{
+
+	width: 100%;
+	height: auto;
+	min-height: 150px;
+	border-bottom-style:solid;
+	border-bottom-color: gray;
+	padding-left:5px;
+
+}
+
+
+.ProjectSecLeft{
+	float: left;
+}
+
+.ProjectSecLeft p{
+	position:absolute;
+	/*top:-20px;*/
+
+	float: left;
+	width: auto;
+}
+
+.ProjectSecLeft h1{
+	float:left;
+}
+
+
+.ProjectSecLeft h3{
+	position:relative;
+	float:left;
+	top:12px;
+	left:10px;
+}
+
+.ProjectSecRight{
+	float:right;
+}
+
+.ProjectSecRight h1{
+	float:right;
+	position:relative;
+	right:100px;
+}
+
+.ProjectSecRight p{
+	position: relative;
+	float: left;
+	font-size: 20px;
+}
+
+.ProjectSecRight img{
+	position: relative;
+	top:24px;
+	right:5px;
+	float: left;
+	width: 20px;
+	height:20px;
+}
+
+#ApplyBtn{
+
+	margin-top: 20px;
+	padding:10px 80px 10px 80px;
+	background: orange;
+	position:relative;
+	float:right;
+	border-style: solid;
+	border-color: gray;
+}
+#ApplyBtn span{
+	font-size:24px;
+	color:white;
+}
+

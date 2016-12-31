@@ -3,6 +3,8 @@ from django.contrib import admin
 from HomePage import views as HomeView
 from PhotoAlbums import views as PhotoAlbumView
 from About import views as AboutView
+from Comments import views as CommentView
+from Projects import views as ProjectView
 
 urlpatterns = patterns('',
     # Examples:
@@ -15,7 +17,8 @@ urlpatterns = patterns('',
     url(r'^home.html', HomeView.get_file),
     url(r'^PhotoAlbums.html', PhotoAlbumView.get_PicAndArrows),
     url(r'^About.html', AboutView.getAboutLayers),
-    #url(r'^About_head.html', AboutView.getAboutHead),
+    url(r'^Comment.html', CommentView.getCommentUI),
+    url(r'^Projects.html', ProjectView.getProjects),
     
     #expire in django1.10
     url(r'^photolist/(?P<AlbumDir>.*)', PhotoAlbumView.get_PhotoList),

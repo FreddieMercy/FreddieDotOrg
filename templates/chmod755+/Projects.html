@@ -1,0 +1,83 @@
+s		<div class="placeholder LeftDiv"></div>	
+		<div class="container">
+
+		{% include "others/PathBar.html" %}	
+
+				<div class="sidebarAbout LeftDiv OnlyHash ForPath2" align=center>
+				
+					<h1>诚招英才</h1>
+					<nav>
+						<ul>
+							<li><a href=#><span>Test</span></a></li>
+						</ul>
+					</nav>
+				</div>
+
+				<div class="RightDiv">
+					<div id="ProjectContent" style="margin:0px 50px 50px 50px">
+
+						<!-- Position title, Salary, Apply and more -->
+							<div class="ProjectSec">
+								<div class="ProjectSecLeft">
+									<h1>'.$db_field['职位'].'</h1>
+									<h3 style="color:#2A2A2A">'.$db_field['工作城市'].'</h3>
+									<p style="font-size:18px;top:50px;">'.$db_field['招聘公司'].'</p><br>
+									<p style="top:80px;">'.$db_field['公司细节'].'</p>
+								</div>
+								<div class="ProjectSecRight">
+									<a href="/templates/sites/comment.php?Apply=True">
+										<div id="ApplyBtn" align=center>
+											<span>立刻申请</span>
+										</div>
+									</a>
+									<h1>'.$db_field['工资'].'</h1>
+									<div style="position:relative;left:-80px;top:-40px"><img src="/static/img/收藏（诚招英才）.png"><p>收藏</p></div>
+
+								</div>
+
+							</div>
+
+							<!-- #, post date, welfare-->
+
+							<div class="ProjectSec" style="background:white;">
+								<br>
+								<span>招聘人数 : '.$db_field['招聘人数'].'</span> 
+								<span style="margin-left:100px;">发布日期 : '.$db_field['发布时间'].'</span><br><br>
+								<span>'.$db_field['福利'].'</span><br><br>
+							</div>
+
+
+							<!-- details -->
+							<div class="ProjectSec">
+								<br>
+								<span style="font-size:18px;">职位详细 : </span> <br>
+
+								<span>'.$db_field['职位详细介绍'].' </span><br><br>
+
+								
+								<span style="font-size:18px;">职能类别 :</span><br><span>'.$db_field['职能类别'].' </span>
+								
+								<br><br>
+							</div>
+
+
+							<!-- Contact method and Work location -->
+							<div class="ProjectSec" style="background:white;">
+								<br>
+								<span style="font-size:18px;">联系方式 : </span> <br>
+
+								<span>'.$db_field['联系方式'].'</span><br><br>
+
+								<span style="font-size:18px;">工作地点 : </span><br>
+								<span>'.$db_field['工作地点'].'</span><br><br>
+							</div>
+
+					</div>
+				</div>
+
+		<div>
+		
+<script type="text/javascript" src="/static/Page/js/adjust.js"></script>
+<script type="text/javascript" src="/static/Page/js/PathBar.js"></script> 
+<script type="text/javascript" src="/static/Page/js/Comment/ajax.js"></script> 
+<script type="text/javascript" src="/static/Page/js/Comment/about.js"></script> 

@@ -40,6 +40,8 @@ INSTALLED_APPS = (
     'HomePage',
     'PhotoAlbums',
     'About',
+    'Comments',
+    'Projects',
 )
 
 MIDDLEWARE_CLASSES = (
