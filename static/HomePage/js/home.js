@@ -1,5 +1,5 @@
 var jsonRaw="";
-
+/*
 
  $.ajax(
  	{
@@ -21,12 +21,12 @@ var jsonRaw="";
  		},
  	}
  );
-
+*/
 $(document).ready(function() {
 
 	//#Home
 
-
+/*
 	if(jsonRaw)
 	{
 		var index=0;
@@ -113,7 +113,7 @@ $(document).ready(function() {
 	
 		,5000);
 	}
-
+*/
 
 	$("#DalianJunda").css({
 							"height":$(window).height()-$("#sidebar1").height()-$("#HeaderPic").height()-$(".PathBar").outerHeight()+14,

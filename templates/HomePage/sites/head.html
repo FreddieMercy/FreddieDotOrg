@@ -1,13 +1,23 @@
 {% block head %}
 
 	<head>
+	
 		{% load staticfiles %}
    		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" href="{% static 'HomePage/css/mystyle.css' %}">		
+		<link rel="stylesheet" type="text/css" href="{% static 'HomePage/css/mystyle.css' %}">	
+		
+		<!-- For the About.html -->	
+		<link rel="stylesheet" type="text/css" href="{% static 'HomePage/css/homeFirstHome.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'HomePage/css/homeSecondAbout.css' %}">	
+		<link rel="stylesheet" type="text/css" href="{% static 'HomePage/css/homeThirdForm.css' %}">	
+		<link rel="stylesheet" type="text/css" href="{% static 'HomePage/css/myAboutstyle.css' %}">	
+		<!-- End 'for the About.html' -->
+		
 		<script src="{% static 'HomePage/js/Plugin/jQuery.js' %}"></script> 		
 		<script src="{% static 'HomePage/js/Plugin/headroom.js' %}"></script> 
 		<script src="{% static 'HomePage/js/Plugin/jQuery.headroom.js' %}"></script> 
 		<script type="text/javascript" src="{% static 'HomePage/js/keyableSideBar.js' %}"></script> 
+
 		<title></title>
   	</head>
   	

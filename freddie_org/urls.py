@@ -15,7 +15,7 @@ urlpatterns = patterns('',
     url(r'^home.html', HomeView.get_file),
     url(r'^PhotoAlbums.html', PhotoAlbumView.get_PicAndArrows),
     url(r'^About.html', AboutView.getAboutLayers),
-    url(r'^About_head.html', AboutView.getAboutHead),
+    #url(r'^About_head.html', AboutView.getAboutHead),
     
     #expire in django1.10
     url(r'^photolist/(?P<AlbumDir>.*)', PhotoAlbumView.get_PhotoList),
