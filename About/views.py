@@ -8,4 +8,4 @@ def getAboutLayers(request):
         #lAr = LeftAndRightArrows.objects.first().HomePicLeftArrow,
         #rAr = LeftAndRightArrows.objects.first().HomePicRighArrow,
     )
-    return render(request, "HomePage/chmod755+"+request.path, context)
+    return render(request, "chmod755+"+request.path, context)

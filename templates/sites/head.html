@@ -1,0 +1,24 @@
+{% block head %}
+
+	<head>
+	
+		{% load staticfiles %}
+   		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="{% static 'Page/css/mystyle.css' %}">	
+		
+		<!-- For the About.html -->	
+		<link rel="stylesheet" type="text/css" href="{% static 'Page/css/homeFirstHome.css' %}">
+		<link rel="stylesheet" type="text/css" href="{% static 'Page/css/homeSecondAbout.css' %}">	
+		<link rel="stylesheet" type="text/css" href="{% static 'Page/css/homeThirdForm.css' %}">	
+		<link rel="stylesheet" type="text/css" href="{% static 'Page/css/myAboutstyle.css' %}">	
+		<!-- End 'for the About.html' -->
+		
+		<script src="{% static 'Page/js/Plugin/jQuery.js' %}"></script> 		
+		<script src="{% static 'Page/js/Plugin/headroom.js' %}"></script> 
+		<script src="{% static 'Page/js/Plugin/jQuery.headroom.js' %}"></script> 
+		<script type="text/javascript" src="{% static 'Page/js/keyableSideBar.js' %}"></script> 
+
+		<title></title>
+  	</head>
+  	
+{% endblock %}

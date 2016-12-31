@@ -10,7 +10,7 @@ def home(request):
         bgp=HomeModel.objects.first().HomeBGP,
         HomeVideo = HomeModel.objects.first().HomeVideo,
     )
-    return TemplateResponse(request, 'HomePage/Home.html', context)
+    return TemplateResponse(request, 'Home.html', context)
 
 def home2(request):    
     
@@ -22,4 +22,4 @@ def get_file(request):
 
         HomeLogo = HomeModel.objects.first().HomeLogo,
     )
-    return render(request, "HomePage/chmod755+"+request.path, context)
+    return render(request, "chmod755+"+request.path, context)
