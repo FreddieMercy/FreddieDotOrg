@@ -1,20 +1,5 @@
 @charset "UTF-8";
 
-#selected{
-	color:#000;
-	backgound-color:#FFF;
-}
-
-#selected:hover{
-	color:#000;
-	backgound-color:#FFF;
-}
-
-#selected:active{
-	color:#000;
-	backgound-color:#FFF;
-}
-
 #sidebar1{
 	background:#2A2A2A;
 }
