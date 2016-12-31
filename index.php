@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="/static/css/homeRollingHome.css">
-		<!--link rel="stylesheet" type="text/css" href="/static/css/homeSectionAbout.css"-->	
-		<link rel="stylesheet" type="text/css" href="/static/css/HomeProduct.css">	
+		<link rel="stylesheet" type="text/css" href="/static/css/homeFirstHome.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/homeSecondAbout.css">	
+		<link rel="stylesheet" type="text/css" href="/static/css/homeThirdForm.css">	
 		<?php include "templates/head.php"; ?>
 		<script type="text/javascript" src="/static/js/sites/home.js"></script> 
 
@@ -19,24 +19,7 @@
 		<div class="container">
 				<!-- First Section -->
 
-				<div id="HomeProduct" class="GeneralFormAndTable HomeTop">
-					
-
-					<div style="width:calc(100% - 100px); margin: 50px; "><span>ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss ssssssssssssssssssssss </span></div>
-
-
-					<div class="botTop" align="center"><a href="/templates/sites/product.php">更多</a></div>
-
-				</div>
-				
-				<!--?php include "templates/PathBar.php"; ?-->
-
-				<!-- End of First -->
-
-				
-				<!-- Second Section (About)-->
-
-				<div id="DalianJunda" style="height:80vh;">		
+				<div id="DalianJunda">		
 							
 					<div id="dljdText">
 						<li id="dljd1" align="center" style="width:60vh; font-size:72px;"><span></span></li>
@@ -65,12 +48,35 @@
 					</div>
 				</div>
 
+				
+				<?php include "templates/PathBar.php"; ?>
+
+				<!-- End of First -->
+				
+				<!-- Second Section (About)-->
+
+				<div id="HomeSecondAbout">
+					<?php MysqlConnect("HomeSecondAbout"); ?>
+				</div>
+
 
 				<!-- End of Second -->
 
+				<!-- Third Section (Product)  *withdraw* --> 
+				<!--div id="HomeThirdForm" class="GeneralFormAndTable">
+					
+					<?php //MysqlConnect("HomeThirdForm");?>
 
-				<!-- Third Section (Contact) --> 
+				</div-->
+				<!-- End of Third -->
+				
+				<!-- Forth Section (Hire) -->
 
+					<?php MysqlConnect("HomeForthHire"); ?>
+
+				<!-- End of Forth-->	
+
+				<!-- Fifth Section (Contact) -->
 
 				<div id="Contactus" style="background:#f6fecc;padding:30px 10px 30px 100px; height:40vh">
 						
@@ -78,13 +84,7 @@
 
 				</div>
 
-				<!-- End of Third-->	
-
-				<!-- Forth Section  -->
-
-					<?php MysqlConnect("HomeForHire"); ?>
-
-				<!-- End of Forth-->	
+				<!-- End of Fifth-->	
 
 
 		</div>

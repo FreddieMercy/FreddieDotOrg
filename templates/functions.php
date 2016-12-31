@@ -42,8 +42,8 @@
 					
 					break;
 
-/*					
-				case "HomeSectionAbout":
+					
+				case "HomeSecondAbout":
 
 					$SQL = "SELECT * FROM `主页（公司简介）` where `id`=1;";
 					$result = $db_handle->query($SQL);
@@ -74,8 +74,7 @@
 						';
 
 					break;
-*/
-					/*
+/*
 				case "HomeThirdForm":
 					$SQL = "SELECT * FROM `主页（产品介绍）` where `id`=1;";
 					$result = $db_handle->query($SQL);
@@ -84,24 +83,12 @@
 					$pic = $db_field['图片'];
 
 
-					$content = '<div class="botTop"><img src="data:image/png;base64,'.base64_encode( $pic ).'"/><span>'.$db_field['标题'].'</span><span style="color:gray;">'.$db_field["副标题"].'</span>';
-					*/
-
-					// Uncomment to enable the searching form
-					/*
-					$SearchForm = '<a href="/templates/sites/product.php">'.$db_field['更多'].'</a><!-- parameter in url? --><form action="templates/functions.php" method="post" enctype="multipart/form-data"><input style="width:300px" type="text" name="product" placeholder="'.$db_field['搜索框默认字'].'" /><input style="width:100px" type="submit" value="'.$db_field['搜索键上的字'].'"></form>';
-
-					$content .= $SearchForm;
-					*/
-/*
-					$content .= '</div>';
+					$content = '<div class="botTop"><img src="data:image/png;base64,'.base64_encode( $pic ).'"/><span>'.$db_field['标题'].'</span><span style="color:gray;">'.$db_field["副标题"].'</span><a href="/templates/sites/product.php">'.$db_field['更多'].'</a><!-- parameter in url? --><form action="templates/functions.php" method="post" enctype="multipart/form-data"><input style="width:300px" type="text" name="product" placeholder="'.$db_field['搜索框默认字'].'" /><input style="width:100px" type="submit" value="'.$db_field['搜索键上的字'].'"></form></div>';
 
 					echo $content;
-					//MysqlConnect("DatabaseTable");
+					MysqlConnect("DatabaseTable");
 					break;
-*/
 
-/*
 				case "DatabaseTable":
 
 					$SQL = "SELECT * FROM `产品数据库`;";
@@ -143,7 +130,7 @@
 					break;
 
 */
-				case "HomeForHire":
+				case "HomeForthHire":
 
 					$SQL = "SELECT * FROM `主页（诚招英才）` where `id`=1;";
 					$result = $db_handle->query($SQL);
@@ -151,7 +138,7 @@
 					$db_field = $result->fetch_assoc();
 
 
-					echo '<div  id="HomeForHire" align="center">
+					echo '<div  id="HomeForthHire" align="center">
 						<li style="width:60vh; font-size:48px; padding-top:5%; "><span>'.$db_field['标题'].'</span></li>
 						<li style="width:45vh; font-size:32px; margin-top:10px;"><span>'.$db_field['内容'].'</span></li>
 						<a href="templates/sites/hire.php" style="text-decoration:none;"><li style="width:45vh; font-size:24px; margin-top:10px; border-style:solid;border-color:white;padding:10px;"><span>'.$db_field['更多'].'</span></li></a>						
