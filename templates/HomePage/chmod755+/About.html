@@ -1,55 +1,34 @@
 
+{% load staticfiles %} <!-- remember to remove it if using model objects instead -->
 
-				<!-- First Section -->
-					{% include "HomePage/others/About/First.html" %}			
-					{% include "HomePage/others/PathBar.html" %}
-				<!-- End of First -->
+<!-- First Section -->
+{% include "HomePage/others/About/First.html" %}			
+{% include "HomePage/others/PathBar.html" %}		
+<!-- End of First -->
 				
-				<!-- Second Section (About)-->
-				<div id="HomeSecondAbout">
-					{% include "HomePage/others/About/Second.html" %}					
-				</div>
-				<!-- End of Second -->
+<!-- Second Section (About)-->
+<div id="HomeSecondAbout">
+	{% include "HomePage/others/About/Second.html" %}					
+</div>
+<!-- End of Second -->
 
-				<!-- Third Section (Product)  --> 
-				<div id="HomeThirdForm" class="GeneralFormAndTable">
-					{% include "HomePage/others/About/Third.html" %}
-				</div>
-				<!-- End of Third -->
+<!-- Third Section (Product)  --> 
+<div id="HomeThirdForm" class="GeneralFormAndTable">
+	{% include "HomePage/others/About/Third.html" %}
+</div>
+<!-- End of Third -->
 				
-				<!-- Forth Section -->
-					{% include "HomePage/others/About/Forth.html" %}
-				<!-- End of Forth-->	
+<!-- Forth Section -->
+	{% include "HomePage/others/About/Forth.html" %}
+<!-- End of Forth-->	
 
-				<!-- Fifth Section (Contact) -->
-
-				<div id="Contactus" style="background:#f6fecc;padding:30px 10px 30px 100px; height:40vh">
-					{% include "HomePage/others/About/Fifth.html" %}
-				</div>
-
-				<!-- End of Fifth-->
+<!-- Fifth Section (Contact) -->
+<div id="Contactus" style="background:#f6fecc;padding:30px 10px 30px 100px; height:40vh">
+	{% include "HomePage/others/About/Fifth.html" %}
+</div>
+<!-- End of Fifth-->
 				
-				<script type="text/javascript">
+<script type="text/javascript" src="{% static 'HomePage/js/adjust.js' %}"></script> 	
+<script type="text/javascript" src="{% static 'HomePage/js/home.js' %}"></script> 
+<script type="text/javascript" src="{% static 'HomePage/js/PathBar.js' %}"></script> 
 				
-				    $.ajax(
-				    		{
-				    			contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-				    			ifModified:true,
-				    			async:false,
-				    			url: About_head.html,
-				    			type:"GET",
-				    			cache:false,
-				    			dataType:'html',
-				    			success: function(response){
-				    		
-				    				$("head").html(response);
-				    
-				    			},
-				    			
-				    			error:function(error){
-				    				alert(error.status);
-				    			},
-				    		}
-				    	);
-				
-				</script>
