@@ -13,6 +13,9 @@ var thebody = "#Sections";
 var root = "Home";
 var thetitle="-Freddie's Personal Website";
 
+var fadeInTime=500;
+var fadeOtTime=500;
+
 function restoreClickBehav(sel){
 	$(sel).css({"background-color":"#2A2A2A","color":"#FFF"});
 }
@@ -34,10 +37,14 @@ function behav(){
 		//If hash does not exist: $("#selected") === root
 	_selectRight();
 	
-	$(thebody).fadeOut(500, function(){/*document.getElementById("homeVideo").pause();*/});
-	_ajax($("#selected").attr('alt'));
-	//console.log("alt: "+$("#selected").attr('alt'));
-	$(thebody).fadeIn(500);
+	$(thebody).fadeOut(fadeOtTime, function(){
+		/*document.getElementById("homeVideo").pause();*/
+	
+		_ajax($("#selected").attr('alt'));
+		//console.log("alt: "+$("#selected").attr('alt'));
+	});
+	
+	$(thebody).fadeIn(fadeInTime);
 }
 
 function _ajax(_url){
@@ -200,7 +207,7 @@ function _keys(){
 				
 				_mark();
 
-			},500);
+			},fadeOtTime);
 		};	
 		
 		});
@@ -248,7 +255,7 @@ $(document).ready(function() {
 	//First time, _mark() without fadeout()
 	_ajax($("#selected").attr('alt'));
 	//console.log("alt: "+$("#selected").attr('alt'));
-	$(thebody).fadeIn(500);
+	$(thebody).fadeIn(fadeInTime+fadeOtTime);
 	
 	_keys();
 	_clicks();
