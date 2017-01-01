@@ -24,6 +24,16 @@ function performClickBehav(sel){
 
 function behav(){
 	
+	//restore the existing "#selected"
+	var sel = document.getElementById("selected");
+	sel.removeAttribute("id");
+	restoreClickBehav(sel);
+	
+	//add "#selected" to the child whose: href == hash
+		//If no hash, then: href == root
+		//If hash does not exist: $("#selected") === root
+	_selectRight();
+	
 	$(thebody).fadeOut(500, function(){/*document.getElementById("homeVideo").pause();*/});
 	_ajax($("#selected").attr('alt'));
 	//console.log("alt: "+$("#selected").attr('alt'));
@@ -68,12 +78,14 @@ function _mark(){
 		return false;
 	};
 	
-	behav();
+	window.location.hash = $("#selected").attr("href");
+	
+	//behav();
 }
 
 function _selectRight(){
 
-	var pathArray = window.location.pathname.split( '/' );
+	var pathArray = window.location.hash.split( '#' );
 	var _location = pathArray[1];
 	
 	if(_location){
@@ -83,13 +95,21 @@ function _selectRight(){
 		_selHelper(root);
 	}
 	
+	//for some reason: "document.getElementById("selected") === undefined" returns false
+	
+	if(document.getElementById("selected") == undefined)
+	{
+		_selHelper(root);
+	}
 };
 
-function _selHelper(_location){
+function _selHelper(_locations){
+	
+	var _location = "#"+_locations;
 	
 	$(navbar+" nav ul li").each(function(){
 		
-		if($(this).children().text() === _location)
+		if($(this).children().attr("href") === _location)
 		{
 			//console.log($(this).children().text());
 			if(document.getElementById("selected") === null){
@@ -104,6 +124,8 @@ function _selHelper(_location){
 		};
 
 	});
+	
+	//_selHelper(root);
 	
 }
 
@@ -201,6 +223,20 @@ function _clicks(){
 	});
 };
 
+function _hashChanged(){
+
+	$(window).on('hashchange', function() {
+
+		behav();
+	});
+
+	if(document.getElementById("selected") === null){
+		behav();
+	};
+
+
+};
+
 $(document).ready(function() {
 	
 	$(thebody).hide();
@@ -217,5 +253,6 @@ $(document).ready(function() {
 	_keys();
 	_clicks();
 	
+	_hashChanged();
 
 });
