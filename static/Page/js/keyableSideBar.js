@@ -30,21 +30,24 @@ function behav(){
 	//restore the existing "#selected"
 	var sel = document.getElementById("selected");
 	sel.removeAttribute("id");
-	//restoreClickBehav(sel);
+	restoreClickBehav(sel);
 	
 	//add "#selected" to the child whose: href == hash
 		//If no hash, then: href == root
 		//If hash does not exist: $("#selected") === root
 	_selectRight();
 	
-	$(thebody).fadeOut(fadeOtTime, function(){
-		/*document.getElementById("homeVideo").pause();*/
-	
-		_ajax($("#selected").attr('alt'));
-		//console.log("alt: "+$("#selected").attr('alt'));
-	});
-	
-	$(thebody).fadeIn(fadeInTime);
+	if(file != $("#selected").attr('alt'))
+	{
+		$(thebody).fadeOut(fadeOtTime, function(){
+			/*document.getElementById("homeVideo").pause();*/
+		
+			_ajax($("#selected").attr('alt'));
+			//console.log("alt: "+$("#selected").attr('alt'));
+		});
+		
+		$(thebody).fadeIn(fadeInTime);
+	}
 }
 
 function _ajax(_url){
