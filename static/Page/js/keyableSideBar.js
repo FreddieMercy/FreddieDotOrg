@@ -246,7 +246,7 @@ $(document).ready(function() {
 	
 	$(thebody).hide();
 
-	$("header").headroom();
+	$(navbar).headroom();
 	
 	_selectRight()
 	
