@@ -4,8 +4,8 @@
 
     var _path="";
 
-    if($(".select1")){
-        _path+= "<li><a href='"+$(".select1").children().attr("href")+"'>"+$(".select1").text()+"</a></li>";
+    if($("#selected")){
+        _path+= "<li><a href='"+$("#selected").children().attr("href")+"'>"+$("#selected").text()+"</a></li>";
         if($(".select2").children().attr("href") != undefined){
 
             if($(".select2").hasClass("OnlyHash")){
@@ -25,26 +25,6 @@
 
 $(document).ready(function() {
 
-  //select1 find default
-	var notFound=true;
-
-    $("#sidebar1 nav ul li").each(function(){
-
-        if($(this).children().attr("href") === window.location.pathname)
-        {
-            if($(".select1")){
-              $(".select1").removeClass("select1");
-            }
-            $(this).addClass("select1");
-			notFound=false;
-            return false;
-        }
-
-    });
-//	console.log(notFound);
-	if(notFound){
-		$("#sidebar1 nav ul li").first().addClass("select1");
-	}
 
     //select2 find (for now ForPath2 == OnlyHash), may change in the future
     //for now ForPath2 has no default because of above,
