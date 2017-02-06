@@ -2,18 +2,6 @@ $(document).ready(function() {
 
 	//From articles.js
 
-	//Overall
-	$("#sidebar1 nav a").hover(function(){
-					$(this).css({"background-color":"#FFF","color":$("#sidebar1").css("background-color")});
-    					
-				             },function(){
-//								if($(this).attr("id") !== "selected")
-//								{
-								$(this).css({"background-color":$("#sidebar1").css("background-color"),"color":"#FFF"});
-//								};
-	});	
-
-
 	$("#sidebar1").css({
 		
 			"top":$("#HeaderPic").height()
@@ -26,9 +14,9 @@ $(document).ready(function() {
 						"margin-top":$("#sidebar1").height()+$("#HeaderPic").height(),
 
 					});
-	$("body").css("padding-bottom", $("footer").height()+14);
+					
+	//$("body").css("padding-bottom", $("footer").height()+14);
 
-  $("header").headroom();
 
   $("#placeholderTop").css({
 

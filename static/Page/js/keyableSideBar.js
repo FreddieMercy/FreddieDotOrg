@@ -30,7 +30,7 @@ function behav(){
 	//restore the existing "#selected"
 	var sel = document.getElementById("selected");
 	sel.removeAttribute("id");
-	restoreClickBehav(sel);
+	//restoreClickBehav(sel);
 	
 	//add "#selected" to the child whose: href == hash
 		//If no hash, then: href == root
@@ -224,9 +224,7 @@ function _clicks(){
 		restoreClickBehav("#selected");
 		document.getElementById("selected").removeAttribute("id");
 		$(this).attr("id","selected");
-		performClickBehav("#selected");
 		_mark();
-
 	});
 };
 
@@ -248,7 +246,7 @@ $(document).ready(function() {
 	
 	$(thebody).hide();
 
-	//$(navbar).headroom();
+	$("header").headroom();
 	
 	_selectRight()
 	
@@ -261,5 +259,18 @@ $(document).ready(function() {
 	_clicks();
 	
 	_hashChanged();
-
+	
+	//Overall
+	
+	$("#sidebar1 nav a").hover(function(){
+		
+					$(this).css({"background-color":"#FFF","color":$("#sidebar1").css("background-color")});
+    					
+				             },function(){
+								if($(this).attr("id") !== "selected")
+								{
+									$(this).css({"background-color":$("#sidebar1").css("background-color"),"color":"#FFF"});
+								};
+	});	
+	
 });
