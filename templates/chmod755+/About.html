@@ -1,6 +1,7 @@
 
 {% load staticfiles %} <!-- remember to remove it if using model objects instead -->
 
+<div class="container">
 <!-- First Section -->
 {% include "others/About/First.html" %}			
 {% include "others/PathBar.html" %}		
@@ -27,6 +28,9 @@
 	{% include "others/About/Fifth.html" %}
 </div>
 <!-- End of Fifth-->
-				
+</div>
+
+
+<script type="text/javascript" src="/static/Page/js/adjust.js"></script>
 <script type="text/javascript" src="{% static 'Page/js/About/home.js' %}"></script> 
 <script type="text/javascript" src="{% static 'Page/js/PathBar.js' %}"></script> 

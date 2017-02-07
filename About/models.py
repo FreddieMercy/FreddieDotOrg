@@ -5,21 +5,21 @@ from django.dispatch import receiver
 
 # Create your models here.
 class AboutModel(models.Model):
-    title = models.CharField(max_length=150, blank=True, null=True)
-    Date_Added  = models.DateTimeField(auto_now_add=False, auto_now=True)
-    HomeLogo = models.FileField(upload_to="AboutFront")
-    HomeVideo = models.FileField(upload_to="AboutFront")
-    HomeBGP = models.FileField(upload_to="AboutFront", null=True)
+    
+    first_text = models.CharField(max_length=150, blank=False, null=False)
+    second_text = models.CharField(max_length=200, blank=False, null=False)
+    third_text = models.CharField(max_length=200, blank=False, null=False)
+    Date_Added = models.DateTimeField(auto_now_add=True, auto_now=False)
+    Last_Modified = models.DateTimeField(auto_now_add=False, auto_now=True)
+    Photo_Album_Cover = models.FileField(upload_to="About/Top")
+    
     
     def __unicode__(self):
-        return str(self.Date_Added)
+        return self.first_text
     
 @receiver(pre_delete, sender=AboutModel)
-def mymodel_delete(sender, instance, **kwargs):
+def myCover_delete(sender, instance, **kwargs):
     # Pass false so FileField doesn't save the model.
-    instance.HomeLogo.delete(False)
-    instance.HomeVideo.delete(False)
-    instance.HomeBGP.delete(False)
-    
+    instance.Photo_Album_Cover.delete(False)    
     
     
