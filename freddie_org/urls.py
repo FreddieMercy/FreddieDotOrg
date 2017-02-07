@@ -20,6 +20,8 @@ urlpatterns = patterns('',
     url(r'^Comment.html', CommentView.getCommentUI),
     url(r'^Projects.html', ProjectView.getProjects),
     
+    url(r'^AboutTopPic', AboutView.getAboutTopPics),
+    
     #expire in django1.10
     url(r'^photolist/(?P<AlbumDir>.*)', PhotoAlbumView.get_PhotoList),
     #url(r'^/(?P<Sites>.*)', HomeView.home2, name='home2'),

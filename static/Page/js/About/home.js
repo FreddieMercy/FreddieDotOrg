@@ -1,12 +1,10 @@
 var jsonRaw="";
-/*
-
  $.ajax(
  	{
  		contentType: 'application/json; charset=UTF-8',
  		ifModified:true,
  		async:false,
- 		url: "/templates/functions.php?NeedHomeJson=True",
+ 		url: "/AboutTopPic",
  		type:"GET",
  		cache:false,
  		dataType:'json',
@@ -21,12 +19,11 @@ var jsonRaw="";
  		},
  	}
  );
-*/
+
 $(document).ready(function() {
 
-	//#Home
+	//#About
 
-/*
 	if(jsonRaw)
 	{
 		var index=0;
@@ -36,9 +33,9 @@ $(document).ready(function() {
 		var trc="";
 
 		$("#dljdText li span").fadeOut(100,function(){
-			$("#dljd1 span").text(jsonRaw[index]['标题']);
-			$("#dljd2 span").text(jsonRaw[index]['副标题']);
-			$("#dljd3 span").text(jsonRaw[index]['内容']);
+			$("#dljd1 span").text(jsonRaw[index]["fields"]['first_text']);
+			$("#dljd2 span").text(jsonRaw[index]["fields"]['second_text']);
+			$("#dljd3 span").text(jsonRaw[index]["fields"]['third_text']);
 
 			if($("#dljd2 span").text().length == 0 && $("#dljd3 span").text().length == 0){
 
@@ -47,7 +44,7 @@ $(document).ready(function() {
 				$("#dljd1").css("padding-top","0px");
 			}
 				
-			$("#playPics").html('<img style="min-height: 100%;" src="http://'+window.location.host+'/templates/functions.php?HomeFirstPic='+jsonRaw[index]['id']+'">');
+			$("#playPics").html('<img style="min-height: 100%;" src="/static/media/'+jsonRaw[index]["fields"]['Photo_Album_Cover']+'">');
 			
 			
 		}).fadeIn(1000);
@@ -73,9 +70,9 @@ $(document).ready(function() {
 
 
 				$("#dljdText li span").fadeOut(500,function(){
-					$("#dljd1 span").text(jsonRaw[index]['标题']);
-					$("#dljd2 span").text(jsonRaw[index]['副标题']);
-					$("#dljd3 span").text(jsonRaw[index]['内容']);
+					$("#dljd1 span").text(jsonRaw[index]["fields"]['first_text']);
+					$("#dljd2 span").text(jsonRaw[index]["fields"]['second_text']);
+					$("#dljd3 span").text(jsonRaw[index]["fields"]['third_text']);
 
 				if($("#dljd2 span").text().length == 0 && $("#dljd3 span").text().length == 0){
 
@@ -83,8 +80,7 @@ $(document).ready(function() {
 				}else{
 					$("#dljd1").css("padding-top","0px");
 				}
-				
-					$("#playPics").html('<img style="min-height: 100%;" src="http://'+window.location.host+'/templates/functions.php?HomeFirstPic='+jsonRaw[index]['id']+'">');
+					$("#playPics").html('<img style="min-height: 100%;" src="/static/media/'+jsonRaw[index]["fields"]['Photo_Album_Cover']+'">');
 				}).fadeIn(1000);
 
 				index+=1;
@@ -113,7 +109,6 @@ $(document).ready(function() {
 	
 		,5000);
 	}
-*/
 
 	$("#DalianJunda").css({
 							"height":$(window).height()-$("#sidebar1").height()-$("#HeaderPic").height()-$(".PathBar").outerHeight()+14,
