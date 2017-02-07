@@ -22,7 +22,34 @@
 	text-decoration:none;
 	padding: 0px 10px 0px 10px;
 }
+
+.ContactIcons{
+	float:left;
+}
+.ContactIcons ul{
+	padding: 10px 0px 10px 0px;
+	margin: 0;
+}
+
+.ContactIcons nav ul li a{
 	
+	font-family: 'Lobster', cursive;
+	color:#000;
+	font-size:30px;
+	text-decoration:none;
+	padding: 0px 10px 0px 10px;
+}
+
+.ContactIcons nav ul li a img{
+	
+	width:8vh;
+	height:8vh;
+}
+
+.Horizontalnav ul li{
+	display:inline;
+}
+
 
 #container{
 	width:100%;

@@ -22,7 +22,7 @@ var jsonRaw="";
 
 $(document).ready(function() {
 
-	//#About
+	//#About  
 
 	if(jsonRaw)
 	{
@@ -44,7 +44,7 @@ $(document).ready(function() {
 				$("#dljd1").css("padding-top","0px");
 			}
 				
-			$("#playPics").html('<img style="min-height: 100%;" src="/static/media/'+jsonRaw[index]["fields"]['Photo_Album_Cover']+'">');
+			$("#playPics").html('<img style="min-height: 100%;" src="/static/media/'+jsonRaw[index]["fields"]['Top_Photo']+'">');
 			
 			
 		}).fadeIn(1000);
@@ -80,7 +80,7 @@ $(document).ready(function() {
 				}else{
 					$("#dljd1").css("padding-top","0px");
 				}
-					$("#playPics").html('<img style="min-height: 100%;" src="/static/media/'+jsonRaw[index]["fields"]['Photo_Album_Cover']+'">');
+					$("#playPics").html('<img style="min-height: 100%;" src="/static/media/'+jsonRaw[index]["fields"]['Top_Photo']+'">');
 				}).fadeIn(1000);
 
 				index+=1;
@@ -109,6 +109,11 @@ $(document).ready(function() {
 	
 		,5000);
 	}
+	
+	$(window).on('hashchange', function() {
+
+		clearTimeout(timerId);
+	});
 
 	$("#DalianJunda").css({
 							"height":$(window).height()-$("#sidebar1").height()-$("#HeaderPic").height()-$(".PathBar").outerHeight()+14,
