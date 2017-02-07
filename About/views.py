@@ -1,4 +1,4 @@
-from .models import AboutModel
+from .models import AboutModel, AboutSecondText, AboutForthComment, AboutFifthContactQrAndTwoLines, AboutFifthContactHorizontal, AboutFifthContactVertical
 from django.template.response import HttpResponse
 import json
 from django.core import serializers
@@ -9,7 +9,11 @@ def getAboutLayers(request):
     
     context=dict(
 
-        #HomeLogo = HomeModel.objects.first().HomeLogo,
+        secondText = AboutSecondText.objects.first(),
+        forthText = AboutForthComment.objects.first(),
+        QR = AboutFifthContactQrAndTwoLines.objects.first(),
+        Horizontal = AboutFifthContactHorizontal.objects.all(),
+        Vertical = AboutFifthContactVertical.objects.all(),
     )
     return render(request, "chmod755+"+request.path, context)
     

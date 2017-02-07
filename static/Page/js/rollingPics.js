@@ -369,4 +369,11 @@ $(document).ready(function(){
 		    };
 	    };
 	});	
+	
+	$(window).on('hashchange', function() {
+
+		clearTimeout(timerId);
+		clearTimeout(albumId);
+	});
+
 });
