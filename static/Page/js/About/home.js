@@ -152,11 +152,6 @@ $(document).ready(function() {
 					});
 
 
-	$(".PathBar").css({
-
-					"background-color":"rgba(255, 255, 255, 0.7)"
-				});
-
 	$(window).scroll(function(e){
 
 		//HomeSecondAbout
