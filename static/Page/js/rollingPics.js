@@ -17,7 +17,12 @@ $(document).ready(function(){
 	$("#dispPic").css("height", $(window).height()-10);
 	$("#leftArrow").hide();
 	$("#righArrow").hide();
-
+	
+	//set up bar and display location
+	$("#HomeBotPic").css("padding-bottom", $("#sidebar1").outerHeight());	
+	$("#dispPic").css("top", $("#sidebar1").outerHeight());
+	$("#siderBar_Pic").css("padding-top", $("#sidebar1").outerHeight());
+	
 	var opts = {
 	  lines: 13 // The number of lines to draw
 	, length: 28 // The length of each line
@@ -87,7 +92,7 @@ $(document).ready(function(){
 				);
 					
 				$("#dispPic").css({
-				"background-position":"top",
+				"background-position":"center",
 				"background-image":'url('+img+')',
 				"background-repeat":"no-repeat",
 				"background-size":"contain"});
@@ -186,7 +191,7 @@ $(document).ready(function(){
 		    	        							};
 		    	    								
 		    	    								$("#dispPic").css({
-		    	    								"background-position":"top",
+		    	    								"background-position":"center",
 		    	    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
 		    	    									+ obj[index]+')',
 		    	    								"background-repeat":"no-repeat",
@@ -223,7 +228,7 @@ $(document).ready(function(){
 		    	        							};
 		    	    								
 		    	    								$("#dispPic").css({
-		    	    								"background-position":"top",
+		    	    								"background-position":"center",
 		    	    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
 		    	    									+ obj[index]+')',
 		    	    								"background-repeat":"no-repeat",
@@ -250,7 +255,7 @@ $(document).ready(function(){
 			    					$("#dispPic").fadeOut(100, function(){
 									
 										$("#dispPic").css({
-										"background-position":"top",
+										"background-position":"center",
 										"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
 											+ obj[index]+')',
 										"background-repeat":"no-repeat",
@@ -274,7 +279,7 @@ $(document).ready(function(){
 			    					$("#dispPic").fadeOut(100, function(){
 									
 										$("#dispPic").css({
-										"background-position":"top",
+										"background-position":"center",
 										"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
 											+ obj[index]+')',
 										"background-repeat":"no-repeat",
@@ -309,7 +314,7 @@ $(document).ready(function(){
 			    							$("#dispPic").fadeOut(500, function(){
 			    								
 			    								$("#dispPic").css({
-			    								"background-position":"top",
+			    								"background-position":"center",
 			    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
 			    									+ obj[index]+')',
 			    								"background-repeat":"no-repeat",
@@ -345,7 +350,7 @@ $(document).ready(function(){
 			    	    							$("#dispPic").fadeOut(500, function(){
 			    	    								
 			    	    								$("#dispPic").css({
-			    	    								"background-position":"top",
+			    	    								"background-position":"center",
 			    	    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
 			    	    									+ obj[index]+')',
 			    	    								"background-repeat":"no-repeat",
