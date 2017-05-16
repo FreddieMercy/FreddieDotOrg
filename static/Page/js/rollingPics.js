@@ -293,7 +293,7 @@ $(document).ready(function(){
 			    				
 								$("#dispPic").html(" <div style='width:100%; height:auto; background:black; opacity:0.7;" +
 										"padding:0px; margin:0px; position:absolute;bottom:0;' align=center><ul><li><input type='checkbox' id='myCheck'" +
-										" style='width:50px;height:50px;' checked='true'></li><li> <p>Auto Play</p></li></ul></div>" +
+										" style='width:50px;height:50px;' checked='true'></li><li> <p style='padding-bottom:30px;'>Auto Play</p></li></ul></div>" +
 										"<style>" +
 										"#dispPic div ul li p { color:white; font-weight:bold; font-size:100px;padding:0px; margin:0px; }"+
 										"</style>");
