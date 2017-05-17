@@ -46,13 +46,6 @@ $(document).ready(function(){
 	, position: 'absolute' // Element positioning
 	}
 	
-	/*
-	$(window).scroll(function(e) {
-	
-		$("#Sections").css("opacity",Math.abs(Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI)));
-
-	});
-	*/
 	
 	$("#siderBar_Pic div nav ul li").hover(function(){
 		$(this).css({"background-color":"#2F2F2F"});
