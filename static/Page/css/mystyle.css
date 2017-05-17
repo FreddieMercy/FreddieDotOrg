@@ -68,19 +68,14 @@ nav ul{
 	list-style:none;
 }
 
-#article{
+.article{
 	text-align:center;
 	
 }
 
-#article div{
+.article div{
 	display:block;
 	
-}
-
-#article div img{
-	width:800px;
-	height:500px;	
 }
 
 #HomeBotPic{
@@ -171,7 +166,7 @@ footer {
 
 .footerUp:hover footer { max-height: 100px; transition: max-height 0.2s linear;}
 
-.HomeStyle{	position:relative; }
+.HomeStyle{	position:absolute; }
 	
 
 header, section, footer, aside, figure {
