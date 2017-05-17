@@ -7,10 +7,70 @@
 					</div>
 				</article>
 				
+				<article id="article" class="HomeStyle" align="center">
+					<div style="z-index:0; background:none">
+						<img src="/static/media/{{ HomeLogo }}">
+					</div>
+				</article>
+				
+				<article id="article" class="HomeStyle" align="center">
+					<div style="z-index:0; background:none">
+						<img src="/static/media/{{ HomeLogo }}">
+					</div>
+				</article>
+				
+				<a href="#" id="back-to-top-Home" style="position:fixed;left: 20px;bottom: 60px; padding: 0; text-align: center;">
+					<div style="margin-top: 20px; padding:10px 80px 10px 80px; background: orange; position:relative; float:right; border-style: solid;	border-color: gray;" align=center>
+						<span style="font-size:24px;color:white;">&uarr; Up</span>
+					</div>
+				</a>
+				
+				<a href="#" id="back-to-bot-Home" style="position:fixed;right: 20px;bottom: 60px; padding: 0; text-align: center;">
+					<div style="margin-top: 20px; padding:10px 80px 10px 80px; background: green; position:relative; float:left; border-style: solid;border-color: gray;" align=center>
+						<span style="font-size:24px;color:white;">&darr; Down</span>
+					</div>
+				</a>
+									
+				<!-- a href="#" id="back-to-bot-Home" title="Back to top"><h2 style="padding:0px 0px 50px 0px;">&uarr; Back to top</h2></a-->
 				<!-- End of First -->
 				<script type="text/javascript">
-					$("#article").css("padding-top", ($(window).height()-500)/2);
-					$("#article").css("padding-bottom", ($(window).height()-500)/2);
+					$(".HomeStyle").css("padding-top", ($(window).height()-$("#article div img").outerHeight())/2);
+					$(".HomeStyle").css("padding-bottom", ($(window).height()-$("#article div img").outerHeight())/2);
+					
+					//fade in/out while scrolling screen-wide	
+					$(window).scroll(function(e) {
+					
+						$("#Sections").css("opacity",Math.abs(Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI)));
+				
+					});
+	
+		
+					$(document).ready(function(){
+						    $('#back-to-top-Home').on('click', function (e) {
+						        e.preventDefault();
+						        if($(window).scrollTop()%$(window).height() === 0)
+						        {
+						        	$('html, body').animate({ scrollTop: $(window).scrollTop() - $(window).height() }, 1500);
+						        }
+						        else
+						        {
+						        	$('html, body').animate({ scrollTop: $(window).scrollTop() - $(window).scrollTop()%$(window).height() }, 1500);
+						        };
+						    });
+						    
+						    $('#back-to-bot-Home').on('click', function (e) {
+						        e.preventDefault();
+						        if($(window).scrollTop()%$(window).height() === 0)
+						        {
+						        	$('html, body').animate({ scrollTop: $(window).scrollTop() + $(window).height() }, 1500);
+						        }
+						        else
+						        {
+						        	$('html, body').animate({ scrollTop: $(window).scrollTop() + $(window).height() - $(window).scrollTop()%$(window).height() }, 1500);
+						        };
+						    });
+					});
+					
 				</script>
 
 			
