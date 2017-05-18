@@ -45,6 +45,13 @@
 	height:8vh;
 }
 
+.RightDivTable{
+
+	position:relative;
+	float:right;
+
+}
+
 .Horizontalnav ul li{
 	display:inline;
 }
@@ -70,6 +77,7 @@ nav ul{
 
 .article{
 	text-align:center;
+	position:relative;
 	
 }
 
@@ -166,8 +174,6 @@ footer {
 
 .footerUp:hover footer { max-height: 100px; transition: max-height 0.2s linear;}
 
-.HomeStyle{	position:absolute; }
-	
 
 header, section, footer, aside, figure {
 	display: block;
