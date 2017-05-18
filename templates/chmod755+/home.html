@@ -1,49 +1,83 @@
 		
 				<!-- First Section -->
-				<div id="sec1" style="z-index:0; background:black; width:100%; height:100vh;" class="article" align="center">
-					<img style="width:60%; height:auto;" src="/static/media/{{ HomeLogo }}">
+				<div id="sec1" style="background:black;" class="article" align="center">
+					<div class="ctn">
+						<img style="width:60%; height:auto;" src="/static/media/{{ HomeLogo }}">
+					</div>
 				</div>
 				
-				<div id="sec2" style="z-index:0; background:white; width:100%; height:100vh;" class="article" align="center">
-					<table style="background:yellow; width:70%;height:auto; position:relative;margin: 0 auto;">
-						<tr>
-							<td>
-								<div class="ContactIcons" align=center style="background:orange; position:relative;">
-									<nav> <!-- Vertical -->
-										<ul>
-											<li><a><img style="width:25vh; height:25vh;" src="/static/media/{{ HomeLogo }}""></a></li>	
-											<li><a><span style="font-size:60px">first_text</span></a></li>	
-											<li><a><span style="font-size:40px">second_textsecond_textsecond_text</span></a></li>
-											<li><a><span>Contact me</span></a></li>		
-											<nav class="Horizontalnav"> <!-- Horizontal -->
-												<ul>
-													<li><a href="#" alt="#"><img src="/static/media/{{ HomeLogo }}"></a></li>															
-												</ul>
-											</nav>
+				<div id="sec2" style="background:white;" class="article" align="center">
+					<div class="ctn">
+						<table style="background:yellow; width:70%;height:auto; position:relative;margin: 0 auto;">
+							<tr>
+								<td>
+									<div class="ContactIcons" align=center style="background:orange; position:relative;">
+										<nav> <!-- Vertical -->
+											<ul>
+												<li><a><img style="width:25vh; height:25vh;" src="/static/media/{{ HomeLogo }}""></a></li>	
+												<li><a><span style="font-size:60px">first_text</span></a></li>	
+												<li><a><span style="font-size:40px">second_textsecond_textsecond_text</span></a></li>
+												<li><a><span>Contact me</span></a></li>		
+												<nav class="Horizontalnav"> <!-- Horizontal -->
+													<ul>
+														<li><a href="#" alt="#"><img src="/static/media/{{ HomeLogo }}"></a></li>															
+													</ul>
+												</nav>
+										
+												<li><a><span>&uarr; Find out how</span></a></li>	
+												<li><a><span>Contact me</span></a></li>																
+											</ul>
+										</nav>
 									
-											<li><a><span>&uarr; Find out how</span></a></li>	
-											<li><a><span>Contact me</span></a></li>																
-										</ul>
-									</nav>
-								
-								</div>
-							</td>
-							<td>
-								<div class="RightDivTable" style=" background:black;" align="center">
-									<img style="width:100vh; height:70vh;" src="/static/media/{{ HomeLogo }}"">
-								</div>
-							</td>
-						</tr>
-					</table>					
+									</div>
+								</td>
+								<td>
+									<div class="RightDivTable" style=" background:black;" align="center">
+										<img style="width:100vh; height:70vh;" src="/static/media/{{ HomeLogo }}"">
+									</div>
+								</td>
+							</tr>
+						</table>	
+					</div>				
 				</div>
 				
-				<div id="sec3" style="z-index:0; background:red; width:100%; height:100vh;" class="article" align="center">
-				<!-- Playerlist id -->
-					<iframe width="60%" height="60%" src="https://www.youtube.com/embed/bhzasigpf3Q?list=PL4m8kzZrBUKpWRXE6kCWPhq904-q-R96O?ecver=1" frameborder="0" allowfullscreen></iframe>
-					
-				<!-- Video id -->
-					<iframe width="560" height="315" src="https://www.youtube.com/embed/F3U9WogSVsQ?ecver=1" frameborder="0" allowfullscreen></iframe>
-					<!-- iframe width="560" height="315" src="https://www.youtube.com/embed/Video Id?ecver=1" frameborder="0" allowfullscreen></iframe-->
+				<div id="sec3" style="background:red;" class="article" align="center">
+					<div class="ctn">
+					<!-- Playerlist id 
+	
+					 
+						<iframe width="560" height="315" src="https://www.youtube.com/embed/F3U9WogSVsQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+						Video id -->
+						<table style="background:yellow; width:80%;height:70%; position:relative;margin: 0 auto;">
+							<tr>
+								<td>
+									<div style="width:100%; height:100%;" id="youtubeVideoPool">
+										<iframe width="100%" height="100%" src="https://www.youtube.com/embed/bhzasigpf3Q?list=PL4m8kzZrBUKpWRXE6kCWPhq904-q-R96O?ecver=1" frameborder="0" allowfullscreen></iframe>
+									</div>
+								</td>
+								<td style="width:25%; height:100%;text-align: left;">
+									<div id="youtubePlayList" style="width:100%; height:100%;">
+										
+										<div>	
+											<nav>					    
+												<ul>{% for x in pics %}
+								        				<li><a alt="{{ x.Album_Url }}">
+			
+								        				<img style="width:88%; height:auto; " src="/static/media/{{ x.Photo_Album_Cover }}">
+								        				<p style="color:white;font-size:24px;text-decoration:none;">{{ x.name }}</p>
+								        				
+								        				</a></li>
+								   					{% endfor %}
+								   									
+								   					<li><span>Andrew Willis built a skatepark in East London using reclaimed materials left over from the Olympic Games, creating a lasting legacy for the local community of Hackney Wick.</span></li>   					
+								   				</ul>
+							   				</nav>
+						   				</div>
+									</div>
+								</td>
+							</tr>
+						</table>
+					</div>
 				</div>
 				
 				<a href="#" id="back-to-top-Home" style="position:fixed;left: 20px;bottom: 60px; padding: 0; text-align: center;">
@@ -58,62 +92,5 @@
 					</div>
 				</a>
 									
-				<!-- a href="#" id="back-to-bot-Home" title="Back to top"><h2 style="padding:0px 0px 50px 0px;">&uarr; Back to top</h2></a-->
 				<!-- End of First -->
-				<script type="text/javascript">
-		
-					$(document).ready(function(){
-					
-							var error = 100;
-							var error_time = 50;
-					
-							$("#sec1 img").css("margin-top", ($("#sec1").height()-$("#sec1 img").outerHeight())/2);
-					
-							$("#sec2 table").css("top", ($("#sec2").height()-$("#sec2 table").outerHeight())/2);
-							
-							$("#sec3 iframe").css("margin-top", ($("#sec3").height()-$("#sec3 iframe").outerHeight())/2);
-		
-							//fade in/out while scrolling screen-wide	
-							$(window).scroll(function(e) {
-							
-								$("#Sections").css("opacity",Math.abs(Math.cos(($(window).scrollTop()%(2*$(window).height()))/$(window).height()*Math.PI)));
-						
-							});	
-							
-						    $('#back-to-top-Home').on('click', function (e) {
-						        e.preventDefault();
-						        if($(window).scrollTop()%$(window).height() === 0)
-						        {
-						        	$('html, body').animate({ scrollTop: $(window).scrollTop() - $(window).height() }, 1500);
-						        }
-						        else if($(window).scrollTop()%$(window).height() < error)
-						        {
-						        	$('html, body').animate({ scrollTop: $(window).scrollTop() - error }, error_time);
-						        }
-						        else
-						        {
-						        	$('html, body').animate({ scrollTop: $(window).scrollTop() - $(window).scrollTop()%$(window).height() }, 1500);
-						        };
-						    });
-						    
-						    $('#back-to-bot-Home').on('click', function (e) {
-						        e.preventDefault();
-						        if($(window).scrollTop()%$(window).height() === 0)
-						        {
-						        	$('html, body').animate({ scrollTop: $(window).scrollTop() + $(window).height() }, 1500);
-						        	
-						        }
-						      	else if($(window).height() - $(window).scrollTop()%$(window).height() < error)
-						        {
-						        	$('html, body').animate({ scrollTop: $(window).scrollTop() + error }, error_time);
-						        }
-						        else
-						        {
-						        	$('html, body').animate({ scrollTop: $(window).scrollTop() + $(window).height() - $(window).scrollTop()%$(window).height() }, 1500);
-						        };
-						    });
-					});
-					
-				</script>
-
-			
+				<script type="text/javascript" src="/static/Page/js/HomeThirdLayerYoutube.js"></script>
