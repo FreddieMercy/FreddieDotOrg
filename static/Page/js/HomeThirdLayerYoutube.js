@@ -44,53 +44,38 @@ $(document).ready(function(){
     });
 
 	$(".ctn").css("width", $(window).width());
- });
- 
- //---------------------------------------------------------------------------------------
- /*
- 	$("#siderBar_Pic div nav ul li").hover(function(){
- 		$(this).css({"background-color":"#2F2F2F"});
- 		$(this).children().children().next().css({"font-weight":"bold"});
+	
+ 	$(".yaHome").hover(function(){
+ 		$(this).css({"background-color":"gray"});
+ 		//$(this).children().children().next().css({"font-weight":"bold"});
  				
     },function(){ 			
-    	if($(this).children().attr("id") !== "selPhotoAlbum")
+    	if($(this).children().attr("id") !== "selYoutube")
     	{
  		            
  				$(this).css({"background-color":"#000"});
- 				$(this).children().children().next().css({"font-weight":"normal"});
+ 				//$(this).children().children().next().css({"font-weight":"normal"});
  			
    		};
    	}
  	);	
  	
- 	$("#siderBar_Pic div nav ul li a").on("click", function(e){
+ 	$(".yaHome a").on("click", function(e){
 		
  			e.preventDefault();
- 		    if($(this).is("#selPhotoAlbum")===false){
-    		
- 		    $( document ).ajaxStop(function() {
- 		    		  $( ".log" ).text( "Triggered ajaxStop handler." );
- 		    		});
- 		    
- 		    clearInterval(timerId);
- 		    clearInterval(albumId);
- 		    if(document.getElementById("myCheck")){
- 		    		
- 		    		$("#myCheck").prop("checked",false);
- 		    	};
- 		    
- 			if(document.getElementById("selPhotoAlbum")){
+ 			
+ 			if(document.getElementById("selYoutube")){
  			    
- 				$("#selPhotoAlbum").parent().css("background","black");
- 				$("#selPhotoAlbum").children().css("font-weight","normal");
- 				document.getElementById("selPhotoAlbum").removeAttribute("id");
+ 				$("#selYoutube").parent().css("background","black");
+ 				//$("#selYoutube").children().css("font-weight","normal");
+ 				document.getElementById("selYoutube").removeAttribute("id");
  			};
- 			$(this).attr("id","selPhotoAlbum");
- 			$(this).parent().css("background","#2F2F2F");
- 			$(this).children().css("font-weight","bold");
- 		}
+ 			
+ 		    if($(this).is("#selYoutube")===false){
+    		
+ 			$(this).attr("id","selYoutube");
+ 			$(this).parent().css("background","gray");
+ 			//$(this).children().css("font-weight","bold");
+ 		};
  	});
- */
- //---------------------------------------------------------------------------------------
-
-			
+ });

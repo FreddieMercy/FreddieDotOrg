@@ -100,6 +100,11 @@ DIV.ctn {
     height:100vh;
 }
 
+DIV.tablewrapper {
+    height: 50px;
+    overflow-y: hidden;
+}
+
 
 #HomeBotPic{
 	position:absolute;
@@ -179,8 +184,8 @@ DIV.ctn {
 #youtubePlayList div nav ul li{
 	
 	display:block;
-	padding:5px 0px 0px 0px;
-	margin:0px 0px 0px 10px;
+	padding:5px 0px 0px 10px;
+	margin:0px;
 	color:white;
 	
 }
