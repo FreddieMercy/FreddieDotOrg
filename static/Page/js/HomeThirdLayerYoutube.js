@@ -1,5 +1,8 @@
  var error = 100;
  var error_time = 50;
+ var embed = "https://www.youtube.com/embed/"
+	 
+ var end = "?ecver=1" 
 
 $(document).ready(function(){
 	
@@ -76,6 +79,12 @@ $(document).ready(function(){
  			$(this).attr("id","selYoutube");
  			$(this).parent().css("background","gray");
  			//$(this).children().css("font-weight","bold");
+ 			
+ 			if($("#video").attr("src")!==embed+$(this).attr("alt")+end){
+ 				$("#video").attr("src", embed+$(this).attr("alt")+end);
+ 			    $("#video")[0].src += "&autoplay=1";
+ 			};
  		};
  	});
+ 	 	
  });
