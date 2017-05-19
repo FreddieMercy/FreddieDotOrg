@@ -1,8 +1,19 @@
  var error = 100;
  var error_time = 50;
  var embed = "https://www.youtube.com/embed/";
-	 
  var end = "?ecver=1";
+ 
+ function clickToSelects(choice){
+		
+		if(document.getElementById("selYoutube")){
+				    
+			$("#selYoutube").parent().css("background","black");
+			document.getElementById("selYoutube").removeAttribute("id");
+		};
+				    		
+		$(choice).attr("id","selYoutube");
+		$(choice).parent().css("background","gray");
+ }
 
 $(document).ready(function(){
 	
@@ -46,7 +57,11 @@ $(document).ready(function(){
         };
     });
 
-	$(".ctn").css("width", $(window).width());
+	$(".ctn").css("width", $(window).width()); //keep it center
+	
+	//select first by default
+	$("#video").attr("src", embed+$("#youtubePlayList div nav ul li").children().first().attr("alt")+end);
+	clickToSelects($("#youtubePlayList div nav ul li").children().first());
 	
  	$(".yaHome").hover(function(){
  		$(this).css({"background-color":"gray"});
@@ -54,37 +69,23 @@ $(document).ready(function(){
  				
     },function(){ 			
     	if($(this).children().attr("id") !== "selYoutube")
-    	{
- 		            
- 				$(this).css({"background-color":"#000"});
- 				//$(this).children().children().next().css({"font-weight":"normal"});
- 			
+    	{ 		            
+ 			$(this).css({"background-color":"#000"});
+ 			//$(this).children().children().next().css({"font-weight":"normal"});	
    		};
-   	}
- 	);	
+   	});	
  	
  	$(".yaHome a").on("click", function(e){
 		
  			e.preventDefault();
  			
- 			if(document.getElementById("selYoutube")){
- 			    
- 				$("#selYoutube").parent().css("background","black");
- 				//$("#selYoutube").children().css("font-weight","normal");
- 				document.getElementById("selYoutube").removeAttribute("id");
- 			};
- 			
- 		    if($(this).is("#selYoutube")===false){
-    		
- 			$(this).attr("id","selYoutube");
- 			$(this).parent().css("background","gray");
- 			//$(this).children().css("font-weight","bold");
+ 			clickToSelects(this);
  			
  			if($("#video").attr("src")!==embed+$(this).attr("alt")+end){
  				$("#video").attr("src", embed+$(this).attr("alt")+end);
  			    $("#video")[0].src += "&autoplay=1";
  			};
- 		};
+ 		
  	});
  	 	
  });

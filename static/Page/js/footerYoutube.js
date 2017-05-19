@@ -33,9 +33,8 @@ function onPlayerStateChange(event) {
 		};
 		
 		sel = sel.children().first(); //a
-		console.log(sel.text());
-    	clickToSelect(sel);
- 			
+
+    	clickToSelect(sel); 			
  		player.loadVideoById($(sel).attr("alt"));
     };
 }
