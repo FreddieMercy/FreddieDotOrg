@@ -164,16 +164,41 @@ DIV.tablewrapper {
 	padding:10px 0px 0px 0px;
 }
 
-#youtubePlayList{
-	
-	padding:0px;
-	position:relative;
-	background-color:black;
-	overflow-y:scroll;
-	direction:rtl; 
+.yaFooter{
+	height:40px;
+	overflow:hidden;
+    
+    border-bottom: thin dashed gray;
 }
 
-#youtubePlayList div nav ul{
+#youtubePlayList div nav ul li{
+	
+	padding:5px 0px 0px 10px;
+}
+
+#youtubePlayList{
+	
+	background-color:black;
+}
+
+#footerPlayList div nav ul li{
+	
+	padding-bottom: 10px;
+}
+
+#footerPlayList{
+	
+	background-color:black;
+}
+
+.HomeYoutube{
+	overflow-y:scroll;
+	direction:rtl;	
+	padding:0px;
+	position:relative;
+}
+
+.HomeYoutube div nav ul{
 
 	padding:0px;
 	margin:0px;
@@ -181,37 +206,28 @@ DIV.tablewrapper {
 	
 }
 	
-#youtubePlayList div nav ul li{
+.HomeYoutube div nav ul li{
 	
-	display:block;
-	padding:5px 0px 0px 10px;
 	margin:0px;
 	color:white;
-	
+	display:block;
 }
 
-#youtubePlayList div nav ul li a{
+.HomeYoutube div nav ul li a{
 
 	padding:0px;
 	
 }
-#youtubePlayList div nav ul li a img{
+.HomeYoutube div nav ul li a img{
 
 	padding:0px;
 	
 }
 
-#youtubePlayList div nav ul li a p{
+.HomeYoutube div nav ul li a p{
 	
 	padding:0px;
 	
-}
-
-#youtubeVideoPool{
-	
-	background:black;
-	position:relative;
-	/*margin:10px 0px 0px 0px;*/
 }
 
 #dispPic{
@@ -242,10 +258,10 @@ footer {
 
 .footerUp footer { max-height: 0; }
 
-.footerUp:hover footer { max-height: 100px; transition: max-height 0.2s linear;}
+.footerUp:hover footer { max-height: 80vh; transition: max-height 0.2s linear;}
 
 
-header, section, footer, aside, figure {
+header, section, aside, figure {
 	display: block;
 }
 /* cyrillic */

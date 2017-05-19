@@ -1,8 +1,8 @@
  var error = 100;
  var error_time = 50;
- var embed = "https://www.youtube.com/embed/"
+ var embed = "https://www.youtube.com/embed/";
 	 
- var end = "?ecver=1" 
+ var end = "?ecver=1";
 
 $(document).ready(function(){
 	
