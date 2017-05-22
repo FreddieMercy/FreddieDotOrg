@@ -264,6 +264,11 @@ footer {
 	overflow:hidden;
 }
 
+#map {
+	width:100vh; 
+	height:70vh;
+}
+
 header, section, aside, figure {
 	display: block;
 }
