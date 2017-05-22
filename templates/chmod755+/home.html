@@ -1,17 +1,17 @@
 		
 				<!-- First Section -->
-				<div id="sec1" style="background:black;" class="article" align="center">
+				<div id="sec1" class="article" align="center">
 					<div class="ctn">
 						<img style="width:60%; height:auto;" src="/static/media/{{ HomeLogo }}">
 					</div>
 				</div>
 				
-				<div id="sec2" style="background:white;" class="article" align="center">
+				<div id="sec2" class="article" align="center">
 					<div class="ctn">
-						<table style="background:yellow; width:70%;height:auto; position:relative;margin: 0 auto;">
+						<table style="width:70%;height:auto; position:relative;margin: 0 auto;">
 							<tr>
 								<td>
-									<div class="ContactIcons" align=center style="background:orange; position:relative;">
+									<div class="ContactIcons" align=center style="position:relative;">
 										<nav> <!-- Vertical -->
 											<ul>
 												<li><a><img style="width:25vh; height:25vh;" src="/static/media/{{ HomeLogo }}""></a></li>	
@@ -31,22 +31,40 @@
 										</nav>
 									</div>
 								</td>
+								<!-- 
 								<td>
 									<div class="RightDivTable" style=" background:black;" align="center">
-										<img style="width:100vh; height:70vh;" src="/static/media/{{ HomeLogo }}"">
+										<div id="map"></div>
+									    <script>
+									      function initMap() {
+									        var uluru = {lat: -25.363, lng: 131.044};
+									        var map = new google.maps.Map(document.getElementById('map'), {
+									          zoom: 4,
+									          center: uluru
+									        });
+									        var marker = new google.maps.Marker({
+									          position: uluru,
+									          map: map
+									        });
+									      }
+									    </script>
+									    <script async defer
+									    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7o4zzFQ3TFLYsun559Y0T0o8f8lD_OIs&callback=initMap">
+									    </script>
 									</div>
 								</td>
+								 -->
 							</tr>
 						</table>	
 					</div>				
 				</div>
 				
-				<div id="sec3" style="background:red;" class="article" align="center">
+				<div id="sec3" class="article" align="center">
 					<div class="ctn">
-						<table style="background:yellow; width:80%;height:70%; position:relative;margin: 0 auto;">
+						<table style="width:80%;height:70%; position:relative;margin: 0 auto;">
 							<tr>
 								<td>
-									<div style="width:100%; height:100%;background:black;position:relative;" id="youtubeVideoPool">
+									<div style="width:100%; height:100%;position:relative;" id="youtubeVideoPool">
 										<iframe id="video" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 									</div>
 								</td>
