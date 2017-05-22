@@ -10,6 +10,10 @@ class HomeModel(models.Model):
     HomeVideo = models.FileField(upload_to="HomeFront")
     HomeBGP = models.FileField(upload_to="HomeFront", null=True)
     
+    Linkedin_API = models.TextField()
+    YouTube_API = models.TextField()
+    Music_API = models.TextField()
+    
     def __unicode__(self):
         return str(self.Date_Added)
     
