@@ -15,9 +15,9 @@
 										<nav> <!-- Vertical -->
 											<ul>
 												<li><a><img style="width:25vh; height:25vh;" src="/static/media/{{ HomeLogo }}""></a></li>	
-												<li><a><span style="font-size:60px">first_text</span></a></li>	
-												<li><a><span style="font-size:40px">second_textsecond_textsecond_text</span></a></li>
-												<li><a><span>Contact me</span></a></li>		
+												<li><a><span style="font-size:60px">{{ theName }} </span></a></li>	
+												<li><a><span style="font-size:40px">{{ theTitle }}</span></a></li>
+									
 												<nav class="Horizontalnav"> <!-- Horizontal -->
 													<ul>
 														<li><a href="#" alt="#"><img src="/static/media/{{ HomeLogo }}"></a></li>															
@@ -47,37 +47,34 @@
 							<tr>
 								<td>
 									<div style="width:100%; height:100%;background:black;position:relative;" id="youtubeVideoPool">
-										<iframe id="video" width="100%" height="100%" src="https://www.youtube.com/embed/F3U9WogSVsQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+										<iframe id="video" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
 									</div>
 								</td>
 								<td style="width:25%; height:100%;text-align: left;">
 									<div id="youtubePlayList" class="HomeYoutube" style="width:100%; height:100%;">										
 										<div>	
 											<nav>					    
-												<ul><!--  {% for x in pics %}
-								        				<li><a alt="{{ x.Album_Url }}">
+												<ul>
+												
+												{% for x in video %}
 			
-								        				<img style="width:88%; height:auto; " src="/static/media/{{ x.Photo_Album_Cover }}">
-								        				<p style="color:white;font-size:24px;text-decoration:none;">{{ x.name }}</p>
-								        				
-								        				</a></li>
-								   					{% endfor %}-->
 								   					<li class="yaHome">	
-									   					<a alt="GvgqDSnpRQM">							   						
+									   					<a alt="{{ x.vid }}">							   						
 									   						<nav>
-									   							<ul>													   							
+									   							<ul>
+									
 												   					<li>
 													   					<div class="tablewrapper">
 													   						<table style="direction:ltr; float:left;">
 																				<tr>
 																					<td>
-																						<img style="width:auto; height:50px;" src="/static/media/{{ HomeLogo }}">
+																						<img style="width:auto; height:50px;" src="{{ x.pic }}">
 																					</td>
 																							
 																					<td>
 																						<nav style="position:relative; padding-left:10px; margin-right:10px;">
 																							<ul>																								
-																								<li style="padding:0; margin:0;"><span style="font-weight:bold; font-size:18px;line-height:0;">a b c d e f g sdls s s s s s s ss s s s</span></li>																						
+																								<li style="padding:0; margin:0;"><span style="font-weight:bold; font-size:18px;line-height:0;">{{ x.title }}</span></li>																						
 																							</ul>
 																						</nav>
 																					</td>
@@ -89,13 +86,14 @@
 													   					
 												   					</li>		
 													   					
-												   					<li style="margin-top:10px;height:50px; overflow:hidden;"><span>Andrew Willis built a skatepark in East London using reclaimed materials left over from the Olympic Games, creating a lasting legacy for the local community of Hackney Wick.</span></li>  			
+												   					<li style="margin-top:10px;height:50px; overflow:hidden;"><span>{{ x.desrip }}</span></li>  			
 													   				
 								   								</ul>
 									   						</nav>
 								   						</a>									   					
 								   					</li>
-																   					
+								   					
+												{% endfor %}		   					
 								   					
 								   				</ul>
 							   				</nav>
