@@ -101,7 +101,8 @@ DIV.ctn {
 }
 
 DIV.tablewrapper {
-    height: 50px;
+    max-height: 50px;
+    height:auto;
     overflow-y: hidden;
 }
 
@@ -165,10 +166,8 @@ DIV.tablewrapper {
 }
 
 .yaFooter{
-	height:40px;
-	overflow:hidden;
-    
-    border-bottom: thin dashed gray;
+	height:auto;
+	border-bottom: thin dashed gray;
 }
 
 #youtubePlayList div nav ul li{
@@ -260,6 +259,10 @@ footer {
 
 .footerUp:hover footer { max-height: 80vh; transition: max-height 0.2s linear;}
 
+.Describ {
+	margin-top:10px;
+	overflow:hidden;
+}
 
 header, section, aside, figure {
 	display: block;
