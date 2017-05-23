@@ -1,0 +1,36 @@
+#!/bin/bash
+
+mv static/media ..
+mv sqlite3 ..
+mv db.sqlite3 ..
+
+echo "command is '$1'"
+
+if [ $# == 4 ] 
+then
+	echo "git pushing: $4"
+	git add -f **
+	git commit -m "$4"
+fi
+
+git $1
+
+mv ../media static
+mv ../sqlite3 .
+mv ../db.sqlite3 .
+
+chown $2 **
+chown $2 **/**
+chown $2 **/**/**
+chown $2 **/**/**/**
+chown $2 **/**/**/**/**
+chown $2 **/**/**/**/**/**
+chown $2 **/**/**/**/**/**/**
+
+chgrp $3 **
+chgrp $3 **/**
+chgrp $3 **/**/**
+chgrp $3 **/**/**/**
+chgrp $3 **/**/**/**/**
+chgrp $3 **/**/**/**/**/**
+chgrp $3 **/**/**/**/**/**/**
