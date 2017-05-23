@@ -3,6 +3,7 @@
 mv static/media ..
 mv sqlite3 ..
 mv db.sqlite3 ..
+mv manage.py ..
 
 echo "command is '$1'"
 
@@ -15,6 +16,7 @@ fi
 
 git $1
 
+mv ../manage.py .
 mv ../media static
 mv ../sqlite3 .
 mv ../db.sqlite3 .
