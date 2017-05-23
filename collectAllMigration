@@ -1,0 +1,35 @@
+#!/bin/bash
+
+rm -rf Freddie_Org
+rm -rf Migrations
+rm -rf django_project
+
+mkdir Migrations
+
+cp About Migrations
+cp Comments Migrations
+cp PhotoAlbums Migrations
+cp Projects Migrations
+cp HomePage Migrations
+
+if [ $# == 2 ] 
+then
+	echo "cp static and db.sqlite3"
+	cp static Migrations
+	cp db.sqlite3 Migrations
+elif [ $# == 1 ]
+then
+	echo "cp static"
+	cp static Migrations
+fi
+
+cp templates Migrations
+
+mkdir django_project
+cp freddie_org/urls.py django_project
+cp freddie_org/settings.py django_project
+
+mkdir Freddie_Org
+mv -rf Migrations Freddie_Org
+mv -rf django_project Freddie_Org
+cp migrate_Data Freddie_Org
