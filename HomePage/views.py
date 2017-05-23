@@ -22,7 +22,6 @@ def home(request):
     
     context=dict(
         year = datetime.datetime.now().year,
-        bgp=HomeModel.objects.first().HomeBGP,
         HomeVideo = HomeModel.objects.first().HomeVideo,
         music = Music,        
     )
@@ -51,5 +50,6 @@ def get_file(request):
         theName = myName,
         theTitle = myTitle,
         video = Video,
+        Pic = HomeModel.objects.first().HomeProfilePic,
     )
     return render(request, "chmod755+"+request.path, context)
