@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 from django.contrib import admin
 from HomePage import views as HomeView
 from PhotoAlbums import views as PhotoAlbumView
@@ -6,7 +6,7 @@ from About import views as AboutView
 from Comments import views as CommentView
 from Projects import views as ProjectView
 
-urlpatterns = patterns('',
+urlpatterns = [
     # Examples:
     url(r'^$', HomeView.home, name='home'),
     url(r'^admin/', admin.site.urls),
@@ -25,4 +25,4 @@ urlpatterns = patterns('',
     #expire in django1.10
     url(r'^photolist/(?P<AlbumDir>.*)', PhotoAlbumView.get_PhotoList),
     #url(r'^/(?P<Sites>.*)', HomeView.home2, name='home2'),
-)
+]

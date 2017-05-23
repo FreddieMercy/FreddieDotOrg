@@ -2,7 +2,7 @@ from .models import AboutModel, AboutSecondText, AboutForthComment, AboutFifthCo
 from django.template.response import HttpResponse
 import json
 from django.core import serializers
-from bzrlib.transport.http._urllib2_wrappers import Request
+#from bzrlib.transport.http._urllib2_wrappers import Request
 from django.shortcuts import render, redirect
 
 def getAboutLayers(request):
