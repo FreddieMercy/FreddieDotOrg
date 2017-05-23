@@ -4,11 +4,12 @@ from django.dispatch import receiver
 
 # Create your models here.
 class HomeModel(models.Model):
-    title = models.CharField(max_length=150, blank=True, null=True)
+
     Date_Added  = models.DateTimeField(auto_now_add=False, auto_now=True)
     HomeLogo = models.FileField(upload_to="HomeFront")
     HomeVideo = models.FileField(upload_to="HomeFront")
-    HomeBGP = models.FileField(upload_to="HomeFront", null=True)
+    
+    HomeProfilePic = models.FileField(upload_to="HomeFront", null=True)
     
     Linkedin_API = models.TextField()
     YouTube_API = models.TextField()

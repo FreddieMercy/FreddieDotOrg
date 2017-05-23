@@ -31,14 +31,6 @@
 	margin: 0;
 }
 
-.ContactIcons nav ul li a{
-	
-	color:#000;
-	font-size:30px;
-	text-decoration:none;
-	padding: 0px 10px 0px 10px;
-}
-
 .ContactIcons nav ul li a img{
 	
 	width:8vh;
@@ -263,12 +255,12 @@ footer {
 	margin-top:10px;
 	overflow:hidden;
 }
-
+/*
 #map {
 	width:100vh; 
 	height:70vh;
 }
-
+*/
 header, section, aside, figure {
 	display: block;
 }
