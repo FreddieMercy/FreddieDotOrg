@@ -3,6 +3,8 @@ var albumId = 0;
 var curAjax = "";
 var somefoo;
 var obj;
+var CheckBox = false;
+var index = -1;
 
 $(document).ready(function(){
 	
@@ -19,6 +21,7 @@ $(document).ready(function(){
 	$("#dispPic").css("height", $(window).height()-10);
 	$("#leftArrow").hide();
 	$("#righArrow").hide();
+	$("#dispCheck").hide();
 	
 	//set up bar and display location
 	$("#HomeBotPic").css("padding-bottom", $("#sidebar1").outerHeight());	
@@ -60,6 +63,18 @@ $(document).ready(function(){
 				$(this).css({"background-color":"#000"});
 				$(this).children().children().next().css({"font-weight":"normal"});
 			
+	   		};
+	   	}
+	);	
+	
+	$("#dispCheck").hover(function(){
+			if(CheckBox){
+			$(this).css("opacity","0.7");
+			}
+	    },function(){								
+	    	if(CheckBox)
+	    	{		            	 
+	    		$(this).css("opacity","0");					
 	   		};
 	   	}
 	);	
@@ -106,11 +121,167 @@ $(document).ready(function(){
 	
 	},5000);
 	
+	$("#myCheck").change(function() {
+		
+	    if(this.checked) {
+	    	clearInterval(albumId);
+	    	albumId = 0;
+			albumId=window.setInterval(
+					
+					function(){
+						
+						if(index<obj.length-1){
+							index++;
+						}else{
+
+							index=0;
+						};
+
+						$("#dispPic").fadeOut(500, function(){
+							
+							$("#dispPic").css({
+							"background-position":"center",
+							"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
+								+ obj[index]+')',
+							"background-repeat":"no-repeat",
+							"background-size":"contain"});
+											    	    							
+						}).fadeIn(500);		
+				
+				},5000);
+	    }else{
+	    	clearInterval(albumId);
+	    	albumId = 0;
+	    };
+	    
+	});
+	
+	$("#leftArrow").hover(function(){	
+		$(this).css({"opacity":"0.7"});
+		clearInterval(albumId);
+		albumId = 0;
+	},function(){ 
+		$(this).css({"opacity":"0"});
+	    if(document.getElementById("myCheck")){
+
+    		if($("#myCheck").prop("checked") && albumId === 0){
+    	
+    			albumId=window.setInterval(
+				
+				function(){
+
+					$("#dispPic").fadeOut(500, function(){
+						
+    					index++;
+						if(index>=obj.length){
+
+							index=0;
+						};
+						
+						$("#dispPic").css({
+						"background-position":"center",
+						"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
+							+ obj[index]+')',
+						"background-repeat":"no-repeat",
+						"background-size":"contain"});
+						
+					}).fadeIn(500);		
+			
+			},5000);
+    		};
+	    };
+	});	
+	
+	$("#righArrow").hover(function(){
+		$(this).css({"opacity":"0.7"});
+		clearInterval(albumId);
+		albumId = 0;
+	},function(){ 
+		$(this).css({"opacity":"0"});
+	    if(document.getElementById("myCheck")){
+
+    		if($("#myCheck").prop("checked")){
+    	
+		albumId=window.setInterval(
+				
+				function(){
+
+					$("#dispPic").fadeOut(500, function(){
+						
+    					index++;
+						if(index>=obj.length){
+
+							index=0;
+						};
+						
+						$("#dispPic").css({
+						"background-position":"center",
+						"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
+							+ obj[index]+')',
+						"background-repeat":"no-repeat",
+						"background-size":"contain"});
+						
+					}).fadeIn(500);		
+			
+			},5000);
+    		};
+	    };
+	});	
+	
+	$("#leftArrow").on("click",function(){
+		
+		index--;		    	
+		
+		if(index<0){
+			
+			index=obj.length-1;
+		};
+		
+		$("#dispPic").fadeOut(100, function(){
+		
+			$("#dispPic").css({
+			"background-position":"center",
+			"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
+				+ obj[index]+')',
+			"background-repeat":"no-repeat",
+			"background-size":"contain"});			
+				    							
+		}).fadeIn(100);		
+		
+	});
+	
+	$("#righArrow").on("click",function(){
+		
+		index++;
+		
+		if(index>=obj.length){
+			
+			index=0;
+		};
+		
+		$("#dispPic").fadeOut(100, function(){
+		
+			$("#dispPic").css({
+			"background-position":"center",
+			"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
+				+ obj[index]+')',
+			"background-repeat":"no-repeat",
+			"background-size":"contain"});		
+			
+		}).fadeIn(100);		
+		
+	});
+	
 	
 	//Display photos under that selected Album folder
 	$("#siderBar_Pic div nav ul li a").on("click", function(e){
 		
 		e.preventDefault();
+		$("#leftArrow").show().css("opacity","0");
+		$("#righArrow").show().css("opacity","0");
+		$("#dispCheck").show().css("opacity","0");
+		CheckBox = true;
+		$("#dispPic").html("");
 		
 	    if($(this).is("#selPhotoAlbum")===false){
     	
@@ -163,148 +334,19 @@ $(document).ready(function(){
 								var target = document.getElementById('Spin');
 								var spinner = new Spinner(opts).spin(target);
 	
-			    				var index = -1;
-			    					    				
-			    				$("#leftArrow").show().css("opacity","0");
-			    				$("#righArrow").show().css("opacity","0");
-			    				
-			    				$("#leftArrow").hover(function(){	
-			    					$(this).css({"opacity":"0.7"});
-			    					clearInterval(albumId);
-			    					albumId = 0;
-			    				},function(){ 
-			    					$(this).css({"opacity":"0"});
-			    				    if(document.getElementById("myCheck")){
-	
-			    			    		if($("#myCheck").prop("checked") && albumId === 0){
-			    			    	
-			    			    			albumId=window.setInterval(
-		    	    						
-		    	    						function(){
-	
-		    	    							$("#dispPic").fadeOut(500, function(){
-		    	    								
-		    	    		    					index++;
-		    	        							if(index>=obj.length){
-	
-		    	        								index=0;
-		    	        							};
-		    	    								
-		    	    								$("#dispPic").css({
-		    	    								"background-position":"center",
-		    	    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
-		    	    									+ obj[index]+')',
-		    	    								"background-repeat":"no-repeat",
-		    	    								"background-size":"contain"});
-			    	    							
-		    	    							}).fadeIn(500);		
-		    	    					
-		    	    					},5000);
-			    			    		};
-			    				    };
-			    				});	
-			    				
-			    				$("#righArrow").hover(function(){
-			    					$(this).css({"opacity":"0.7"});
-			    					clearInterval(albumId);
-			    					albumId = 0;
-			    				},function(){ 
-			    					$(this).css({"opacity":"0"});
-			    				    if(document.getElementById("myCheck")){
-	
-			    			    		if($("#myCheck").prop("checked")){
-			    			    	
-		    	    				albumId=window.setInterval(
-		    	    						
-		    	    						function(){
-	
-		    	    							$("#dispPic").fadeOut(500, function(){
-		    	    								
-		    	    		    					index++;
-		    	        							if(index>=obj.length){
-	
-		    	        								index=0;
-		    	        							};
-		    	    								
-		    	    								$("#dispPic").css({
-		    	    								"background-position":"center",
-		    	    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
-		    	    									+ obj[index]+')',
-		    	    								"background-repeat":"no-repeat",
-		    	    								"background-size":"contain"});
-			    	    							
-		    	    							}).fadeIn(500);		
-		    	    					
-		    	    					},5000);
-			    			    		};
-			    				    };
-			    				});	
-			    				
-			    				$("#leftArrow").on("click",function(){
-			    					
-			    					index--;		    	
-	    							
-			    					if(index<0){
-	    								
-	    								index=obj.length-1;
-	    							};
-			    					
-			    					$("#dispPic").fadeOut(100, function(){
-									
-										$("#dispPic").css({
-										"background-position":"center",
-										"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
-											+ obj[index]+')',
-										"background-repeat":"no-repeat",
-										"background-size":"contain"});			
-											    							
-			    					}).fadeIn(100);		
-			    					
-			    				});
-			    				
-			    				$("#righArrow").on("click",function(){
-			    					
-			    					index++;
-			    					
-	    							if(index>=obj.length){
-	    								
-	    								index=0;
-	    							};
-			    					
-			    					$("#dispPic").fadeOut(100, function(){
-									
-										$("#dispPic").css({
-										"background-position":"center",
-										"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
-											+ obj[index]+')',
-										"background-repeat":"no-repeat",
-										"background-size":"contain"});		
-										
-			    					}).fadeIn(100);		
-			    					
-			    				});
-			    				
-								$("#dispPic").html(" <div style='width:100%; height:auto; background:black; opacity:0.7;" +
-										"padding:0px; margin:0px; position:absolute;bottom:0;' align=center><ul><li><input type='checkbox' id='myCheck'" +
-										" style='width:50px;height:50px;' checked='true'></li><li> <p style='padding-bottom:30px;'>Auto Play</p></li></ul></div>" +
-										"<style>" +
-										"#dispPic div ul li p { color:white; font-weight:bold; font-size:100px;padding:0px; margin:0px; }"+
-										"</style>");
-								
+			    				index = -1;
+			    					    											
 								somefoo = window.setInterval(
 			    						
 			    						function(){
 			    							
-		    								index++;
-			    							if(index>=obj.length){
-			    								
-			    								index=0;
-			    							};
-	
-			    							$("#dispPic div").css("opacity","0");
-			    							$("#dispPic div").hover(function(){	$(this).css({"opacity":"0.7"});},
-			    													function(){ $(this).css({"opacity":"0"});});	
 			    							$("#dispPic").fadeOut(500, function(){
+			    								
+			    		    					index++;
+			    								if(index>=obj.length){
+
+			    									index=0;
+			    								};
 			    								
 			    								$("#dispPic").css({
 			    								"background-position":"center",
@@ -312,53 +354,16 @@ $(document).ready(function(){
 			    									+ obj[index]+')',
 			    								"background-repeat":"no-repeat",
 			    								"background-size":"contain"});
-			    											    							
-			    							}).fadeIn(500);		
-			    									    							
+			    								
+			    							}).fadeIn(500);	
+						
 			    							spinner.stop(); 
 			    							$("#Spin").html("");
 			    							$("#Spin").hide();
-	    	    							
-	    	    							
+	    	    								    	    							
 	    	    							clearInterval(somefoo);
 			    					},5000);
 								
-								
-								
-			    				$("#myCheck").change(function() {
-	
-			    				    if(this.checked) {
-			    				    	clearInterval(albumId);
-			    				    	albumId = 0;
-			    	    				albumId=window.setInterval(
-			    	    						
-			    	    						function(){
-			    	    							
-			    	    							if(index<obj.length-1){
-			    	    								index++;
-			    	    							}else{
-		
-			    	    								index=0;
-			    	    							};
-		
-			    	    							$("#dispPic").fadeOut(500, function(){
-			    	    								
-			    	    								$("#dispPic").css({
-			    	    								"background-position":"center",
-			    	    								"background-image":'url(/static/media/Photo/Albums/'+$("#selPhotoAlbum").attr("alt")+'/'
-			    	    									+ obj[index]+')',
-			    	    								"background-repeat":"no-repeat",
-			    	    								"background-size":"contain"});
-				    	    											    	    							
-			    	    							}).fadeIn(500);		
-			    	    					
-			    	    					},5000);
-			    				    }else{
-			    				    	clearInterval(albumId);
-			    				    	albumId = 0;
-			    				    };
-			    				    
-			    				});
 			    
 			    			};
 		    			},
