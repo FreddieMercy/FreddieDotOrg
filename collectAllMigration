@@ -30,6 +30,6 @@ cp freddie_org/urls.py django_project
 cp freddie_org/settings.py django_project
 
 mkdir Freddie_Org
-mv -rf Migrations Freddie_Org
-mv -rf django_project Freddie_Org
+mv Migrations Freddie_Org
+mv django_project Freddie_Org
 cp migrate_Data Freddie_Org

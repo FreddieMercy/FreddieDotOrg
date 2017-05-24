@@ -1,7 +1,8 @@
 var timerId = 0;
 var albumId = 0;
 var curAjax = "";
-	
+var somefoo;
+
 $(document).ready(function(){
 	
 	if ($('#back-to-top').length) {
@@ -152,8 +153,8 @@ $(document).ready(function(){
 		    				curAjax = $("#selPhotoAlbum").attr("alt");
 							if(xhr.status===200 || xhr.status===300 || xhr.status===304){
 								
-								$("#Spin").show()
-								var target = document.getElementById('Spin')
+								$("#Spin").show();
+								var target = document.getElementById('Spin');
 								var spinner = new Spinner(opts).spin(target);
 	
 			    				var index = -1;
@@ -290,8 +291,8 @@ $(document).ready(function(){
 										"<style>" +
 										"#dispPic div ul li p { color:white; font-weight:bold; font-size:100px;padding:0px; margin:0px; }"+
 										"</style>");
-			    				
-			    				albumId=window.setInterval(
+								
+								somefoo = window.setInterval(
 			    						
 			    						function(){
 			    							
@@ -322,13 +323,14 @@ $(document).ready(function(){
 			    							$("#Spin").hide();
 	    	    							
 	    	    							
-	    	    							
+	    	    							clearInterval(somefoo);
 			    					},5000);
-			    				
+								
+								
+								
 			    				$("#myCheck").change(function() {
 	
 			    				    if(this.checked) {
-			    				    	clearInterval(albumId);
 			    	    				albumId=window.setInterval(
 			    	    						
 			    	    						function(){
