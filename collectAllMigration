@@ -6,11 +6,11 @@ rm -rf django_project
 
 mkdir Migrations
 
-cp About Migrations
-cp Comments Migrations
-cp PhotoAlbums Migrations
-cp Projects Migrations
-cp HomePage Migrations
+cp -rf About Migrations
+cp -rf Comments Migrations
+cp -rf PhotoAlbums Migrations
+cp -rf Projects Migrations
+cp -rf HomePage Migrations
 
 if [ $# == 2 ] 
 then
@@ -23,7 +23,7 @@ then
 	cp static Migrations
 fi
 
-cp templates Migrations
+cp -rf templates Migrations
 
 mkdir django_project
 cp freddie_org/urls.py django_project
