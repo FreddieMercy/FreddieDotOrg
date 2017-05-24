@@ -225,7 +225,7 @@ DIV.tablewrapper {
 	
 	background:black;
 	width:82%;
-	height:100vh;
+	/*height:100vh;*/
 	position:absolute;
 	float:right;
 	/*margin:10px 0px 0px 0px;*/

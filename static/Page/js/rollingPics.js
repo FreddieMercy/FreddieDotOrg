@@ -51,6 +51,9 @@ $(document).ready(function(){
 	, position: 'absolute' // Element positioning
 	}
 	
+	$( window ).resize(function() {
+		$("#dispPic").css("height", $(window).height());
+	});
 	
 	$("#siderBar_Pic div nav ul li").hover(function(){
 		$(this).css({"background-color":"#2F2F2F"});
