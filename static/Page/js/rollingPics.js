@@ -19,6 +19,10 @@ $(document).ready(function(){
 	};
 
 	$("#dispPic").css("height", $(window).height()-10);
+	
+	$("#dispPic").css("width", $(window).width()-$("siderBar_Pic").outerHeight());
+	$("#dispCheck").css("width", $(window).width()-$("siderBar_Pic").outerHeight());
+	
 	$("#leftArrow").hide();
 	$("#righArrow").hide();
 	$("#dispCheck").hide();

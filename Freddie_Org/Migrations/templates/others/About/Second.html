@@ -1,0 +1,20 @@
+
+{% load staticfiles %} <!-- remember to remove it if using model objects instead -->
+
+<div id="aboutText" align="center">
+	<li id="about1"><span>{{ secondText.first_text }}</span></li>
+	<li id="about2"><span>{{ secondText.second_text }}</span></li>
+
+	<a href="#Projects" style="text-decoration:none;">
+		<li id="about3"><span>{{ secondText.thrid_text }}</span></li>
+	</a>
+
+</div>
+
+<div id="AboutBee">
+	<img src="/static/media/{{ secondText.Second_Left }}">
+</div>
+						
+<div id="AboutPics">
+	<img src="/static/media/{{ secondText.Second_Right }}">
+</div>
