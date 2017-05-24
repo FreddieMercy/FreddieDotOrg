@@ -2,6 +2,7 @@ var timerId = 0;
 var albumId = 0;
 var curAjax = "";
 var somefoo;
+var obj;
 
 $(document).ready(function(){
 	
@@ -110,14 +111,17 @@ $(document).ready(function(){
 	$("#siderBar_Pic div nav ul li a").on("click", function(e){
 		
 		e.preventDefault();
+		
 	    if($(this).is("#selPhotoAlbum")===false){
-    		
+    	
+	    clearInterval(timerId);
+		clearInterval(albumId);
+		albumId = 0;
+		    
 	    $( document ).ajaxStop(function() {
 	    		  $( ".log" ).text( "Triggered ajaxStop handler." );
 	    		});
-	    
-	    clearInterval(timerId);
-	    clearInterval(albumId);
+	    	    
 	    if(document.getElementById("myCheck")){
 	    		
 	    		$("#myCheck").prop("checked",false);
@@ -147,10 +151,12 @@ $(document).ready(function(){
 		    			error:function(error){
 		    				alert(error.status);
 		    			},
-		    			success: function(obj, c, xhr){
+		    			success: function(objt, c, xhr){
 							//console.log("response status code: "+xhr.status);
 		    				//console.log(obj);
+		    				obj = objt;
 		    				curAjax = $("#selPhotoAlbum").attr("alt");
+		    				
 							if(xhr.status===200 || xhr.status===300 || xhr.status===304){
 								
 								$("#Spin").show();
@@ -158,19 +164,19 @@ $(document).ready(function(){
 								var spinner = new Spinner(opts).spin(target);
 	
 			    				var index = -1;
-			    		
-			    				
+			    					    				
 			    				$("#leftArrow").show().css("opacity","0");
 			    				$("#righArrow").show().css("opacity","0");
 			    				
 			    				$("#leftArrow").hover(function(){	
 			    					$(this).css({"opacity":"0.7"});
 			    					clearInterval(albumId);
+			    					albumId = 0;
 			    				},function(){ 
 			    					$(this).css({"opacity":"0"});
 			    				    if(document.getElementById("myCheck")){
 	
-			    			    		if($("#myCheck").prop("checked")){
+			    			    		if($("#myCheck").prop("checked") && albumId === 0){
 			    			    	
 			    			    			albumId=window.setInterval(
 		    	    						
@@ -191,8 +197,6 @@ $(document).ready(function(){
 		    	    								"background-repeat":"no-repeat",
 		    	    								"background-size":"contain"});
 			    	    							
-			    	    							console.log("index left:"+index);
-			    	    							
 		    	    							}).fadeIn(500);		
 		    	    					
 		    	    					},5000);
@@ -203,6 +207,7 @@ $(document).ready(function(){
 			    				$("#righArrow").hover(function(){
 			    					$(this).css({"opacity":"0.7"});
 			    					clearInterval(albumId);
+			    					albumId = 0;
 			    				},function(){ 
 			    					$(this).css({"opacity":"0"});
 			    				    if(document.getElementById("myCheck")){
@@ -228,8 +233,6 @@ $(document).ready(function(){
 		    	    								"background-repeat":"no-repeat",
 		    	    								"background-size":"contain"});
 			    	    							
-			    	    							console.log("index right:"+index);
-			    	    							
 		    	    							}).fadeIn(500);		
 		    	    					
 		    	    					},5000);
@@ -254,9 +257,7 @@ $(document).ready(function(){
 											+ obj[index]+')',
 										"background-repeat":"no-repeat",
 										"background-size":"contain"});			
-										
-										console.log("index left click: "+index);
-	    							
+											    							
 			    					}).fadeIn(100);		
 			    					
 			    				});
@@ -279,8 +280,6 @@ $(document).ready(function(){
 										"background-repeat":"no-repeat",
 										"background-size":"contain"});		
 										
-										console.log("index right click: "+index);
-	    							
 			    					}).fadeIn(100);		
 			    					
 			    				});
@@ -313,9 +312,7 @@ $(document).ready(function(){
 			    									+ obj[index]+')',
 			    								"background-repeat":"no-repeat",
 			    								"background-size":"contain"});
-			    								
-			    								console.log("(main)index:"+index);
-			    							
+			    											    							
 			    							}).fadeIn(500);		
 			    									    							
 			    							spinner.stop(); 
@@ -331,6 +328,8 @@ $(document).ready(function(){
 			    				$("#myCheck").change(function() {
 	
 			    				    if(this.checked) {
+			    				    	clearInterval(albumId);
+			    				    	albumId = 0;
 			    	    				albumId=window.setInterval(
 			    	    						
 			    	    						function(){
@@ -350,14 +349,13 @@ $(document).ready(function(){
 			    	    									+ obj[index]+')',
 			    	    								"background-repeat":"no-repeat",
 			    	    								"background-size":"contain"});
-				    	    							
-				    	    							console.log("(myCk)index:"+index);
-				    	    							
+				    	    											    	    							
 			    	    							}).fadeIn(500);		
 			    	    					
 			    	    					},5000);
 			    				    }else{
 			    				    	clearInterval(albumId);
+			    				    	albumId = 0;
 			    				    };
 			    				    
 			    				});
