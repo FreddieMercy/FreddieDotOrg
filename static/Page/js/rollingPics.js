@@ -291,6 +291,8 @@ $(document).ready(function(){
     	
 	    clearInterval(timerId);
 		clearInterval(albumId);
+		clearInterval(somefoo);
+		
 		albumId = 0;
 		    
 	    $( document ).ajaxStop(function() {
