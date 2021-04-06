@@ -38,10 +38,13 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'HomePage',
+<<<<<<< HEAD
     'PhotoAlbums',
     'About',
     'Comments',
     'Projects',
+=======
+>>>>>>> Save the code for Freddie
 )
 
 MIDDLEWARE_CLASSES = (
