@@ -1,7 +1,0 @@
-#!/bin/bash
-
-./manage.py collectstatic
-./manage.py migrate
-./manage.py makemigrations
-
-reboot

@@ -1,7 +1,0 @@
-#!/bin/bash
-python manage.py shell
-
-from django.contrib.auth.models import User
-User.objects.get(username="$1", is_superuser=True).delete()
-
-exit
